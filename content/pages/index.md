@@ -65,9 +65,9 @@ sections:
         title: Wheelchair Ramps
         subtitle: Safe Access to Homes
         text: >+
-          <div style="text-align: center">Custom-built wheelchair ramps
-          providing safe, accessible entry to homes for individuals with
-          mobility challenges. We handle permits, construction, and ensure ADA
+          <div style="text-align: left">Custom-built wheelchair ramps providing
+          safe, accessible entry to homes for individuals with mobility
+          challenges. We handle permits, construction, and ensure ADA
           compliance.</div>
 
         actions: []
