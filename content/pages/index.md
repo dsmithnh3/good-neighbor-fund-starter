@@ -63,7 +63,7 @@ sections:
     items:
       - type: FeaturedItem
         title: Wheelchair Ramps
-        subtitle: Numbers Done
+        subtitle: Safe Access to Homes
         text: >-
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.
