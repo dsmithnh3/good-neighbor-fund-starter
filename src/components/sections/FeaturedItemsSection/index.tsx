@@ -13,7 +13,7 @@ export default function FeaturedItemsSection(props) {
     return (
         <Section
             elementId={elementId}
-            className="sb-component-featured-items-section"
+            className={classNames('sb-component-featured-items-section', 'py-16')}
             colors={colors}
             backgroundImage={backgroundImage}
             styles={styles?.self}
@@ -48,9 +48,8 @@ export default function FeaturedItemsSection(props) {
                 <FeaturedItemVariants
                     variant={variant}
                     items={items}
-                    hasTopMargin={!!(badge?.label || title?.text || subtitle)}
-                    hasSectionTitle={!!title?.text}
-                    hasAnnotations={enableAnnotations}
+                    hasSectionTitle={!!title}
+                    enableAnnotations={enableAnnotations}
                 />
                 {actions.length > 0 && (
                     <div

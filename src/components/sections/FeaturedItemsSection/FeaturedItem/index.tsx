@@ -6,7 +6,29 @@ import { mapStylesToClassNames as mapStyles } from '../../../../utils/map-styles
 import Action from '../../../atoms/Action';
 import ImageBlock from '../../../blocks/ImageBlock';
 
-export default function FeaturedItem(props) {
+interface FeaturedItemProps {
+    elementId?: string;
+    title?: string;
+    tagline?: string;
+    subtitle?: string;
+    text?: string;
+    image?: {
+        url: string;
+        altText?: string;
+        elementId?: string;
+    };
+    actions?: Array<{
+        label: string;
+        url: string;
+        className?: string;
+    }>;
+    colors?: string;
+    styles?: any;
+    hasSectionTitle?: boolean;
+    'data-sb-field-path'?: string;
+}
+
+export default function FeaturedItem(props: FeaturedItemProps) {
     const { elementId, title, tagline, subtitle, text, image, actions = [], colors = 'bg-light-fg-dark', styles = {}, hasSectionTitle } = props;
     const fieldPath = props['data-sb-field-path'];
     const TitleTag = hasSectionTitle ? 'h3' : 'h2';
@@ -20,46 +42,52 @@ export default function FeaturedItem(props) {
             className={classNames(
                 'sb-card',
                 colors,
+                'transition-all duration-300 ease-in-out',
+                'transform hover:-translate-y-1 hover:shadow-xl hover:scale-[1.02]',
+                'border border-gray-100',
+                'rounded-xl overflow-hidden',
+                'h-full flex flex-col',
                 styles?.self?.margin ? mapStyles({ margin: styles?.self?.margin }) : undefined,
-                styles?.self?.padding ? mapStyles({ padding: styles?.self?.padding }) : undefined,
-                styles?.self?.borderWidth && styles?.self?.borderWidth !== 0 && styles?.self?.borderStyle !== 'none'
-                    ? mapStyles({
-                          borderWidth: styles?.self?.borderWidth,
-                          borderStyle: styles?.self?.borderStyle,
-                          borderColor: styles?.self?.borderColor ?? 'border-primary'
-                      })
-                    : undefined,
-                styles?.self?.borderRadius ? mapStyles({ borderRadius: styles?.self?.borderRadius }) : undefined,
-                styles?.self?.textAlign ? mapStyles({ textAlign: styles?.self?.textAlign }) : undefined,
-                'overflow-hidden'
+                styles?.self?.textAlign ? mapStyles({ textAlign: styles?.self?.textAlign }) : undefined
             )}
             data-sb-field-path={fieldPath}
         >
-            <div className={classNames('w-full', 'flex', mapFlexDirectionStyles(flexDirection, hasTextContent, hasImage), 'gap-6')}>
+            <div className={classNames('w-full h-full', 'flex flex-col', 'p-8')}>
                 {hasImage && (
-                    <ImageBlock
-                        {...image}
-                        className={classNames('flex', mapStyles({ justifyContent: styles?.self?.justifyContent ?? 'flex-start' }), {
-                            'xs:w-[28.4%] xs:shrink-0': hasTextContent && (flexDirection === 'row' || flexDirection === 'row-reversed')
-                        })}
-                        {...(fieldPath && { 'data-sb-field-path': '.image' })}
-                    />
+                    <div className={classNames(
+                        'flex items-center justify-center p-4 mb-6',
+                        'bg-white bg-opacity-20 rounded-lg',
+                        'transition-all duration-300',
+                        'w-20 h-20 mx-auto md:mx-0'
+                    )}>
+                        <ImageBlock
+                            {...image}
+                            className={classNames(
+                                'object-contain',
+                                hasTextContent && (flexDirection === 'row' || flexDirection === 'row-reversed') ? 'w-16 h-16' : 'w-32 h-32',
+                                'transition-transform duration-300 group-hover:scale-110'
+                            )}
+                            {...(fieldPath && { 'data-sb-field-path': '.image' })}
+                        />
+                    </div>
                 )}
-                {hasTextContent && (
-                    <div
-                        className={classNames('w-full', {
-                            'xs:grow': hasImage && (flexDirection === 'row' || flexDirection === 'row-reversed')
-                        })}
-                    >
+                <div
+                    className={classNames('flex-1 flex flex-col', {
+                        'text-center md:text-left': true
+                    })}
+                >
+                    <div>
                         {tagline && (
-                            <p className="text-sm" {...(fieldPath && { 'data-sb-field-path': '.tagline' })}>
+                            <span className="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-primary-600 uppercase rounded-full bg-primary-100" 
+                                {...(fieldPath && { 'data-sb-field-path': '.tagline' })}>
                                 {tagline}
-                            </p>
+                            </span>
                         )}
                         {title && (
                             <TitleTag
-                                className={classNames('h3', {
-                                    'mt-2': tagline
+                                className={classNames('text-2xl font-bold text-gray-900 dark:text-white', {
+                                    'mt-2': tagline,
+                                    'mb-3': subtitle || text
                                 })}
                                 {...(fieldPath && { 'data-sb-field-path': '.title' })}
                             >
@@ -68,8 +96,9 @@ export default function FeaturedItem(props) {
                         )}
                         {subtitle && (
                             <p
-                                className={classNames('text-lg', {
-                                    'mt-2': tagline || title
+                                className={classNames('text-lg font-medium text-gray-600 dark:text-gray-300', {
+                                    'mt-1': tagline || title,
+                                    'mb-4': text
                                 })}
                                 {...(fieldPath && { 'data-sb-field-path': '.subtitle' })}
                             >
@@ -78,9 +107,20 @@ export default function FeaturedItem(props) {
                         )}
                         {text && (
                             <Markdown
-                                options={{ forceBlock: true, forceWrapper: true }}
-                                className={classNames('sb-markdown', {
-                                    'mt-4': tagline || title || subtitle
+                                options={{ 
+                                    forceBlock: true, 
+                                    forceWrapper: true,
+                                    overrides: {
+                                        p: {
+                                            component: 'p',
+                                            props: {
+                                                className: 'text-gray-600 dark:text-gray-400 mb-4 leading-relaxed'
+                                            }
+                                        }
+                                    }
+                                }}
+                                className={classNames('prose max-w-none mt-4 text-gray-600 dark:text-gray-300', {
+                                    'text-base leading-relaxed': true
                                 })}
                                 {...(fieldPath && { 'data-sb-field-path': '.text' })}
                             >
@@ -90,13 +130,10 @@ export default function FeaturedItem(props) {
                         {actions.length > 0 && (
                             <div
                                 className={classNames(
-                                    'flex',
-                                    'flex-wrap',
-                                    mapStyles({ justifyContent: styles?.self?.justifyContent ?? 'flex-start' }),
-                                    'items-center',
-                                    'gap-4',
+                                    'mt-8 pt-4',
+                                    'flex flex-wrap gap-3',
                                     {
-                                        'mt-6': tagline || title || subtitle || text
+                                        'mt-auto border-t border-gray-100 dark:border-gray-700': !(tagline || title || subtitle || text)
                                     }
                                 )}
                                 {...(fieldPath && { 'data-sb-field-path': '.actions' })}
@@ -105,14 +142,28 @@ export default function FeaturedItem(props) {
                                     <Action
                                         key={index}
                                         {...action}
-                                        className="lg:whitespace-nowrap"
-                                        {...(fieldPath && { 'data-sb-field-path': `.${index}` })}
-                                    />
+                                        className={classNames(
+                                            'inline-flex items-center justify-center',
+                                            'px-6 py-2.5 text-sm font-semibold',
+                                            'rounded-lg transition-all duration-200',
+                                            'bg-white text-primary-600 hover:bg-gray-50 border-2 border-primary-600',
+                                            'focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
+                                            'hover:shadow-md hover:-translate-y-0.5',
+                                            'dark:bg-gray-800 dark:text-primary-400 dark:border-primary-500 dark:hover:bg-gray-700',
+                                            action.className
+                                        )}
+                                        {...(fieldPath && { 'data-sb-field-path': ['.actions', index, '.'] })}
+                                    >
+                                        {action.label}
+                                        <svg className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                        </svg>
+                                    </Action>
                                 ))}
                             </div>
                         )}
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );
