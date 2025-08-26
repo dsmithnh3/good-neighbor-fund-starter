@@ -59,7 +59,7 @@ sections:
         self:
           textAlign: center
       type: TitleBlock
-    subtitle: Subtitle goes here
+    subtitle: 'Practical support for mobility, nutrition and dignity'
     items:
       - type: FeaturedItem
         title: 500k
