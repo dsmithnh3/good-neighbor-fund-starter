@@ -62,7 +62,7 @@ sections:
     subtitle: 'Practical support for mobility, nutrition and dignity'
     items:
       - type: FeaturedItem
-        title: 500k
+        title: Wheelchair Ramps
         subtitle: Numbers Done
         text: >-
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
