@@ -48,10 +48,16 @@ function readContent(file: string) {
             throw Error(`Unhandled file type: ${file}`);
     }
 
-    // Make Sourcebit-compatible
+    // Ensure content has a type field
+    if (!content.type) {
+        console.warn(`Content file ${file} missing type field, defaulting to PageLayout`);
+        content.type = 'PageLayout';
+    }
+
+    // Make Sourcebit-compatible with safe defaults
     content.__metadata = {
         id: file.replace(/\\/g, '/'), // Replace backslashes with forward slashes
-        modelName: content.type
+        modelName: content.type || 'PageLayout'
     };
 
     return content;
@@ -61,8 +67,13 @@ function resolveReferences(content, fileToContent) {
     if (!content || !content.type) return;
 
     const modelName = content.type;
-    // Make Sourcebit-compatible
-    if (!content.__metadata) content.__metadata = { modelName: content.type };
+    // Make Sourcebit-compatible with safe defaults
+    if (!content.__metadata) {
+        content.__metadata = {
+            modelName: content.type || 'PageLayout',
+            id: content.__metadata?.id || ''
+        };
+    }
 
     for (const fieldName in content) {
         let fieldValue = content[fieldName];
@@ -104,7 +115,9 @@ export function allContent() {
 
     const siteConfig = data.find((e) => e.__metadata.modelName === Config.name);
 
-    resolveReferences(siteConfig, fileToContent);
+    if (siteConfig) {
+        resolveReferences(siteConfig, fileToContent);
+    }
 
     return { objects, pages, props: { site: siteConfig } };
 }

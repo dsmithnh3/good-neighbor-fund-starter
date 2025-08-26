@@ -1,46 +1,28 @@
 ---
-title: Home
-slug: /
+title: Our Programs
+slug: /programs
 sections:
   - type: GenericSection
     title:
-      text: Mobility. Nutrition. Dignity.
+      text: Our Programs
       color: text-dark
       type: TitleBlock
-    subtitle: Supporting Georgia neighbors with mobility, nutrition, and dignity when insurance falls short
+    subtitle: Practical support for mobility, nutrition, and dignity
     text: >
-      Good Neighbor Mobility Fund provides wheelchair ramps, durable medical equipment, 
-      tube-feeding formula, and holiday care stockings to help patients and families 
-      remain safe and independent in their own homes.
+      Good Neighbor Mobility Fund provides four core programs designed to address 
+      the most critical needs when insurance coverage falls short. Each program 
+      is tailored to help Georgia residents maintain independence and dignity.
     actions:
-      - label: Learn About Our Programs
-        altText: 'Learn about our programs'
-        url: /programs
-        showIcon: true
-        icon: arrowRight
-        iconPosition: right
-        style: primary
-        elementId: 'programs-cta'
-        type: Button
-      - label: Make a Donation
-        altText: 'Donate to support our mission'
-        url: #donate
-        showIcon: true
-        icon: arrowRight
-        iconPosition: right
+      - label: Learn About Our Impact
+        url: /impact
         style: secondary
-        elementId: 'donate-cta'
         type: Link
     media:
-      url: /images/hero-main.jpg
-      altText: Good Neighbor Mobility Fund helping Georgia residents with mobility and nutrition needs
-      elementId: 'hero-image'
+      url: /images/programs-hero.jpg
+      altText: Good Neighbor Mobility Fund programs overview
+      elementId: 'programs-hero-image'
       type: ImageBlock
-    badge:
-      label: 501(c)(3) Nonprofit
-      color: text-primary
-      type: Badge
-    elementId: 'hero-section'
+    elementId: 'programs-hero'
     colors: bg-light-fg-dark
     styles:
       self:
@@ -53,13 +35,13 @@ sections:
           - pr-16
   - type: FeaturedItemsSection
     title:
-      text: Our Programs
+      text: Core Programs
       color: text-dark
       styles:
         self:
           textAlign: center
       type: TitleBlock
-    subtitle: Practical support for mobility, nutrition, and dignity
+    subtitle: Comprehensive support for Georgia residents
     items:
       - type: FeaturedItem
         title: Wheelchair Ramps
@@ -71,8 +53,8 @@ sections:
         actions:
           - label: Learn More
             url: /programs/wheelchair-ramps
-            style: secondary
-            type: Link
+            style: primary
+            type: Button
         elementId: 'wheelchair-ramps'
         colors: bg-neutralAlt-fg-dark
         styles:
@@ -98,16 +80,15 @@ sections:
         subtitle: Durable Medical Equipment
         text: >
           Financial assistance for essential medical equipment like wheelchairs, 
-          walkers, hospital beds, and other mobility aids when insurance coverage 
-          is insufficient or denied.
+          walkers, hospital beds, and other devices not covered by insurance.
         actions:
           - label: Learn More
             url: /programs/dme-grants
-            style: secondary
-            type: Link
+            style: primary
+            type: Button
         image:
           url: /images/icons/dme-icon.svg
-          altText: Durable medical equipment
+          altText: Medical equipment assistance
           type: ImageBlock
         elementId: 'dme-grants'
         colors: bg-neutralAlt-fg-dark
@@ -123,19 +104,18 @@ sections:
             justifyContent: center
             textAlign: left
       - title: Tube Feeding Formula
-        subtitle: Essential Nutrition Support
+        subtitle: Nutrition Support
         text: >
-          Monthly supply of specialized tube feeding formula for patients who 
-          cannot eat by mouth, ensuring proper nutrition and preventing 
-          malnutrition complications.
+          Providing essential tube-feeding formula and supplies to ensure proper 
+          nutrition for patients who cannot eat by mouth.
         actions:
           - label: Learn More
             url: /programs/tube-feeding
-            style: secondary
-            type: Link
+            style: primary
+            type: Button
         image:
           url: /images/icons/nutrition-icon.svg
-          altText: Tube feeding nutrition support
+          altText: Nutrition and tube feeding support
           type: ImageBlock
         elementId: 'tube-feeding'
         colors: bg-neutralAlt-fg-dark
@@ -158,8 +138,8 @@ sections:
         actions:
           - label: Learn More
             url: /programs/holiday-stockings
-            style: secondary
-            type: Link
+            style: primary
+            type: Button
         image:
           url: /images/icons/holiday-icon.svg
           altText: Holiday care packages
@@ -177,7 +157,7 @@ sections:
             flexDirection: row
             justifyContent: center
             textAlign: left
-    elementId: 'programs-section'
+    elementId: 'core-programs-section'
     colors: bg-light-fg-dark
     styles:
       self:
@@ -188,21 +168,24 @@ sections:
           - pr-16
   - type: GenericSection
     title:
-      text: Our Mission
+      text: How to Apply
       color: text-dark
       type: TitleBlock
-    subtitle: Preventing isolation, injury, and malnutrition
+    subtitle: Getting help from our programs
     text: >
-      Good Neighbor Health & Mobility Project, Inc. (public brand: Good Neighbor Mobility Fund) 
-      is a Georgia nonprofit dedicated to preventing isolation, injury, and malnutrition by 
-      providing timely, practical support that allows patients and families to remain safe 
-      and independent in their own homes.
+      Each program has specific eligibility requirements and application processes. 
+      We work closely with healthcare providers, social workers, and case managers 
+      to identify individuals who would benefit from our services.
     actions:
-      - label: Read Our Story
+      - label: Contact Us
+        url: #contact
+        style: primary
+        type: Button
+      - label: Learn About Eligibility
         url: /about
         style: secondary
         type: Link
-    elementId: 'mission-section'
+    elementId: 'how-to-apply-section'
     colors: bg-neutralAlt-fg-dark
     styles:
       self:
@@ -214,16 +197,16 @@ sections:
         textAlign: center
   - type: GenericSection
     title:
-      text: Make a Difference Today
+      text: Support Our Programs
       color: text-dark
       type: TitleBlock
-    subtitle: Your donation helps provide mobility, nutrition, and dignity
+    subtitle: Help us expand our reach
     text: >
-      Every dollar you donate goes directly to helping Georgia residents in need. 
-      Whether it's building a wheelchair ramp, providing medical equipment, or 
-      ensuring proper nutrition, your support makes a real difference.
+      Your donations directly support our programs, allowing us to help more 
+      Georgia residents in need. Every dollar makes a difference in providing 
+      mobility, nutrition, and dignity to our neighbors.
     actions:
-      - label: Donate Now
+      - label: Make a Donation
         url: #donate
         style: primary
         type: Button
@@ -231,7 +214,7 @@ sections:
         url: #volunteer
         style: secondary
         type: Link
-    elementId: 'donate-section'
+    elementId: 'support-programs-section'
     colors: bg-light-fg-dark
     styles:
       self:
@@ -241,5 +224,10 @@ sections:
           - pb-16
           - pr-16
         textAlign: center
+seo:
+  metaTitle: Our Programs - Good Neighbor Mobility Fund
+  metaDescription: Explore Good Neighbor Mobility Fund's programs including wheelchair ramps, DME grants, tube feeding support, and holiday care packages for Georgia residents.
+  socialImage: /images/social-hero.jpg
+  type: Seo
 type: PageLayout
 ---

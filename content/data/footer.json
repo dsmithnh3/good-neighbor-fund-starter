@@ -1,33 +1,41 @@
 {
     "logo": {
-        "url": "/images/logo-white.svg",
-        "altText": "Logo light",
+        "url": "/images/logo.png",
+        "altText": "Good Neighbor Mobility Fund Logo",
         "type": "ImageBlock"
     },
-    "text": "A description of your brand",
+    "text": "Supporting Georgia neighbors with mobility, nutrition, and dignity when insurance falls short.",
     "primaryLinks": {
-        "title": "Product",
+        "title": "Programs",
         "links": [
             {
-                "label": "Features",
-                "altText": "Features page",
-                "url": "/",
+                "label": "Wheelchair Ramps",
+                "altText": "Wheelchair ramps program",
+                "url": "/programs/wheelchair-ramps",
                 "icon": "arrowRight",
                 "iconPosition": "right",
                 "style": "secondary",
                 "type": "Link"
             },
             {
-                "label": "Pricing",
-                "url": "/pricing",
+                "label": "DME Grants",
+                "url": "/programs/dme-grants",
                 "icon": "arrowRight",
                 "iconPosition": "right",
                 "style": "secondary",
                 "type": "Link"
             },
             {
-                "label": "Documentation",
-                "url": "/",
+                "label": "Tube Feeding",
+                "url": "/programs/tube-feeding",
+                "icon": "arrowRight",
+                "iconPosition": "right",
+                "style": "secondary",
+                "type": "Link"
+            },
+            {
+                "label": "Holiday Stockings",
+                "url": "/programs/holiday-stockings",
                 "icon": "arrowRight",
                 "iconPosition": "right",
                 "style": "secondary",
@@ -37,20 +45,28 @@
         "type": "FooterLinksGroup"
     },
     "secondaryLinks": {
-        "title": "Company",
+        "title": "Organization",
         "links": [
             {
-                "label": "Careers",
-                "altText": "careers page",
-                "url": "/careers",
+                "label": "About Us",
+                "altText": "About Good Neighbor Mobility Fund",
+                "url": "/about",
                 "icon": "arrowRight",
                 "iconPosition": "right",
                 "style": "secondary",
                 "type": "Link"
             },
             {
-                "label": "Blog",
-                "url": "/blog",
+                "label": "Our Impact",
+                "url": "/impact",
+                "icon": "arrowRight",
+                "iconPosition": "right",
+                "style": "secondary",
+                "type": "Link"
+            },
+            {
+                "label": "Contact Us",
+                "url": "#contact",
                 "icon": "arrowRight",
                 "iconPosition": "right",
                 "style": "secondary",
@@ -61,49 +77,51 @@
     },
     "socialLinks": [
         {
-            "altText": "GitHub link",
-            "url": "https://github.com/netlify",
-            "icon": "github",
-            "type": "Social"
-        },
-        {
-            "altText": "Twitter link",
-            "url": "https://twitter.com/netlify",
-            "icon": "twitter",
-            "type": "Social"
-        },
-        {
-            "altText": "LinkedIn link",
-            "url": "https://www.linkedin.com/company/netlify",
-            "icon": "linkedin",
-            "type": "Social"
-        },
-        {
-            "altText": "Email link",
-            "url": "/",
+            "altText": "Email us",
+            "url": "mailto:info@goodneighborfund.org",
             "icon": "mail",
+            "type": "Social"
+        },
+        {
+            "altText": "Facebook",
+            "url": "https://facebook.com/goodneighborfund",
+            "icon": "facebook",
+            "type": "Social"
+        },
+        {
+            "altText": "Twitter",
+            "url": "https://twitter.com/goodneighborfund",
+            "icon": "twitter",
             "type": "Social"
         }
     ],
     "legalLinks": [
         {
-            "label": "Terms",
-            "url": "/",
+            "label": "Privacy Policy",
+            "url": "/privacy",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",
             "type": "Link"
         },
         {
-            "label": "Privacy",
-            "url": "/",
+            "label": "Terms of Use",
+            "url": "/terms",
+            "icon": "arrowRight",
+            "iconPosition": "right",
+            "style": "secondary",
+            "type": "Link"
+        },
+        {
+            "label": "Donation Policy",
+            "url": "/donation-policy",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",
             "type": "Link"
         }
     ],
-    "copyrightText": "Powered by [Netlify](https://www.netlify.com/)\n",
+    "copyrightText": "© 2024 Good Neighbor Health & Mobility Project, Inc. All rights reserved. 501(c)(3) status pending.",
     "colors": "bg-dark-fg-light",
     "type": "Footer"
 }

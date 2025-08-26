@@ -12,18 +12,29 @@ import {
 export function resolveStaticProps(urlPath, data) {
     // get root path of paged path: /blog/page/2 => /blog
     const rootUrlPath = getRootPagePath(urlPath);
-    const { __metadata, ...rest } = data.pages.find((page) => page.__metadata.urlPath === rootUrlPath);
+    const pageData = data.pages.find((page) => page.__metadata.urlPath === rootUrlPath);
+
+    if (!pageData) {
+        throw new Error(`Page not found for path: ${rootUrlPath}`);
+    }
+
+    const { __metadata, ...rest } = pageData;
+
+    // Ensure metadata has all required fields
+    const cleanMetadata = {
+        id: __metadata.id || '',
+        modelName: __metadata.modelName || 'PageLayout',
+        urlPath: urlPath
+    };
+
     const props = {
         page: {
-            __metadata: {
-                ...__metadata,
-                // override urlPath in metadata with paged path: /blog => /blog/page/2
-                urlPath
-            },
+            __metadata: cleanMetadata,
             ...rest
         },
         ...data.props
     };
+
     return mapDeepAsync(
         props,
         async (value, keyPath, stack) => {
