@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 
 import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../../utils/map-styles-to-class-names';
@@ -40,7 +41,11 @@ export default function GenericSection(props) {
                 )}
             >
                 {hasTextContent && (
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: 'easeOut' }}
                         className={classNames('w-full', 'max-w-sectionBody', {
                             'lg:max-w-[27.5rem]': hasMedia && hasXDirection
                         })}
@@ -98,10 +103,14 @@ export default function GenericSection(props) {
                                 ))}
                             </div>
                         )}
-                    </div>
+                    </motion.div>
                 )}
                 {hasMedia && (
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
                         className={classNames('w-full', 'flex', mapStyles({ justifyContent: styles?.self?.justifyContent ?? 'flex-start' }), {
                             'max-w-sectionBody': media.__metadata.modelName === 'FormBlock',
                             'lg:w-[57.5%] lg:shrink-0': hasTextContent && hasXDirection,
@@ -109,7 +118,7 @@ export default function GenericSection(props) {
                         })}
                     >
                         <Media media={media} hasAnnotations={enableAnnotations} />
-                    </div>
+                    </motion.div>
                 )}
             </div>
         </Section>

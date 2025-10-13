@@ -30,9 +30,9 @@ sections:
         flexDirection: row
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
   - type: FeaturedItemsSection
     title:
       text: Core Programs
@@ -163,9 +163,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
   - type: GenericSection
     title:
       text: How to Apply
@@ -191,9 +191,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
         textAlign: center
   - type: GenericSection
     title:
@@ -220,9 +220,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
         textAlign: center
 seo:
   metaTitle: Our Programs - Good Neighbor Mobility Fund

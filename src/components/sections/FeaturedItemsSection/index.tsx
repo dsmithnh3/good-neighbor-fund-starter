@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 
 import { mapStylesToClassNames as mapStyles } from '../../../utils/map-styles-to-class-names';
 import { getComponent } from '../../components-registry';
@@ -20,16 +21,36 @@ export default function FeaturedItemsSection(props) {
             {...getDataAttrs(props)}
         >
             <div className={classNames('w-full', 'flex', 'flex-col', mapStyles({ alignItems: styles?.self?.justifyContent ?? 'flex-start' }))}>
-                {badge && <Badge {...badge} className="w-full max-w-sectionBody" {...(enableAnnotations && { 'data-sb-field-path': '.badge' })} />}
+                {badge && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <Badge {...badge} className="w-full max-w-sectionBody" {...(enableAnnotations && { 'data-sb-field-path': '.badge' })} />
+                    </motion.div>
+                )}
                 {title && (
-                    <TitleBlock
-                        {...title}
-                        className={classNames('w-full', 'max-w-sectionBody', { 'mt-4': badge?.label })}
-                        {...(enableAnnotations && { 'data-sb-field-path': '.title' })}
-                    />
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <TitleBlock
+                            {...title}
+                            className={classNames('w-full', 'max-w-sectionBody', { 'mt-4': badge?.label })}
+                            {...(enableAnnotations && { 'data-sb-field-path': '.title' })}
+                        />
+                    </motion.div>
                 )}
                 {subtitle && (
-                    <p
+                    <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
                         className={classNames(
                             'w-full',
                             'max-w-sectionBody',
@@ -43,7 +64,7 @@ export default function FeaturedItemsSection(props) {
                         {...(enableAnnotations && { 'data-sb-field-path': '.subtitle' })}
                     >
                         {subtitle}
-                    </p>
+                    </motion.p>
                 )}
                 <FeaturedItemVariants
                     variant={variant}

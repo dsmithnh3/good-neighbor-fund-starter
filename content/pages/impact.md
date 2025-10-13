@@ -30,26 +30,26 @@ sections:
         flexDirection: row
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
   - type: FeaturedItemsSection
     title:
-      text: Year 1 Goals
+      text: Year 1 Impact Goals
       color: text-dark
       styles:
         self:
           textAlign: center
       type: TitleBlock
-    subtitle: Our targets for our first year of operation
+    subtitle: We're committed to measurable results. Track our progress!
     items:
       - type: FeaturedItem
-        title: 25
-        subtitle: Wheelchair Ramps Built
+        title: ≥100
+        subtitle: Holiday Stockings
         text: >
-          Our goal is to build 25 custom wheelchair ramps across Georgia, 
-          providing safe home access for individuals with mobility challenges.
-        elementId: 'ramps-goal'
+          Delivered to patients in need. Annual program bringing comfort, care items, and
+          dignity during the holiday season when families need support most.
+        elementId: 'stockings-goal'
         colors: bg-neutralAlt-fg-dark
         styles:
           self:
@@ -64,20 +64,21 @@ sections:
             textAlign: left
         image:
           type: ImageBlock
-          altText: Wheelchair ramp construction goal
+          altText: Holiday stockings goal
           elementId: ''
-          url: /images/icons/ramp-goal-icon.svg
+          url: /images/icons/holiday-goal-icon.svg
           styles:
             self:
               borderRadius: x-large
-      - title: 50
-        subtitle: DME Grants Awarded
+      - title: ≥30
+        subtitle: DME Micro-Grants
         text: >
-          We aim to provide 50 durable medical equipment grants, helping 
-          individuals access essential medical devices not covered by insurance.
+          Awarded (typically $100-$500 each). Fast-turnaround grants for critical equipment
+          like rollators with seats, heel-protective boots, and fall-alert devices often
+          denied by insurance.
         image:
           url: /images/icons/dme-goal-icon.svg
-          altText: Medical equipment grants goal
+          altText: DME micro-grants goal
           type: ImageBlock
         elementId: 'dme-goal'
         colors: bg-neutralAlt-fg-dark
@@ -92,16 +93,17 @@ sections:
             flexDirection: row
             justifyContent: center
             textAlign: left
-      - title: 100
-        subtitle: Tube Feeding Cases
+      - title: ≥10 months
+        subtitle: Tube-Feeding Formula
         text: >
-          Our nutrition program will support 100 patients with tube-feeding 
-          formula and supplies, ensuring proper nutrition when eating by mouth isn't possible.
+          Funded for patients. Direct-to-vendor subsidies ensuring patients reliant on
+          enteral nutrition have consistent access to medically necessary formula not
+          covered by insurance.
         image:
           url: /images/icons/nutrition-goal-icon.svg
-          altText: Tube feeding nutrition support goal
+          altText: Tube feeding formula goal
           type: ImageBlock
-        elementId: 'nutrition-goal'
+        elementId: 'formula-goal'
         colors: bg-neutralAlt-fg-dark
         styles:
           self:
@@ -114,16 +116,17 @@ sections:
             flexDirection: row
             justifyContent: center
             textAlign: left
-      - title: 200
-        subtitle: Holiday Stockings Delivered
+      - title: ≥5
+        subtitle: Wheelchair Ramps
         text: >
-          During the holiday season, we'll deliver 200 care packages filled 
-          with essential items and seasonal treats to patients and families.
+          Constructed or funded. Working with licensed and insured contractors to build
+          safe, ADA-compliant ramps that provide home access for individuals with
+          mobility challenges.
         image:
-          url: /images/icons/holiday-goal-icon.svg
-          altText: Holiday care packages goal
+          url: /images/icons/ramp-goal-icon.svg
+          altText: Wheelchair ramps goal
           type: ImageBlock
-        elementId: 'holiday-goal'
+        elementId: 'ramps-goal'
         colors: bg-neutralAlt-fg-dark
         styles:
           self:
@@ -142,9 +145,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
   - type: GenericSection
     title:
       text: Program Breakdown
@@ -160,9 +163,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
         textAlign: center
   - type: FeaturedItemsSection
     title:
@@ -254,9 +257,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
   - type: GenericSection
     title:
       text: Join Our Mission
@@ -282,9 +285,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
         textAlign: center
 seo:
   metaTitle: Our Impact - Good Neighbor Mobility Fund

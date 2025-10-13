@@ -65,7 +65,7 @@ sections:
         tagline: ''
         subtitle: ''
         text: >
-          Your contributions help provide wheelchair ramps, medical equipment, 
+          Your contributions help provide wheelchair ramps, medical equipment,
           nutrition support, and essential supplies to those in need.
         actions: []
         elementId: 'donate-feature'
@@ -74,16 +74,16 @@ sections:
           self:
             padding:
               - pt-8
-              - pl-6
+              - pl-8
               - pb-8
-              - pr-6
+              - pr-8
             textAlign: center
             borderRadius: large
         image:
           type: ImageBlock
           altText: Donate icon
           elementId: ''
-          url: /images/icons/compassion-icon.svg
+          url: /images/icons/heart-icon.svg
           styles:
             self:
               margin:
@@ -91,7 +91,7 @@ sections:
       - title: Volunteer
         subtitle: ''
         text: >
-          Lend your time and skills to support our programs and services. 
+          Lend your time and skills to support our programs and services.
           Help us build ramps, pack stockings, and serve our community.
         actions: []
         image:
@@ -108,19 +108,19 @@ sections:
           self:
             padding:
               - pt-8
-              - pl-6
+              - pl-8
               - pb-8
-              - pr-6
+              - pr-8
             textAlign: center
             borderRadius: large
       - title: Spread The Word
         subtitle: ''
         text: >
-          Share our mission with your community to help us reach more people 
+          Share our mission with your community to help us reach more people
           in need. Every voice makes a difference.
         actions: []
         image:
-          url: /images/icons/dignity-icon.svg
+          url: /images/icons/share-icon.svg
           altText: Spread the word icon
           type: ImageBlock
           styles:
@@ -133,9 +133,9 @@ sections:
           self:
             padding:
               - pt-8
-              - pl-6
+              - pl-8
               - pb-8
-              - pr-6
+              - pr-8
             textAlign: center
             borderRadius: large
     elementId: 'how-to-help-section'
@@ -161,15 +161,20 @@ sections:
           textAlign: center
     subtitle: ''
     text: >
-      At **Good Neighbor Health & Mobility Project, Inc.** (public brand: Good Neighbor Mobility Fund), 
-      we are dedicated to helping individuals overcome the challenges of limited mobility and nutrition support. 
-      As healthcare advocates ourselves, we understand the hardships when insurance coverage falls short, 
+      At **Good Neighbor Health & Mobility Project, Inc.** (public brand: Good Neighbor Mobility Fund),
+      we are dedicated to helping individuals overcome the challenges of limited mobility and nutrition support.
+      As healthcare advocates ourselves, we understand the hardships when insurance coverage falls short,
       the difficulties in accessing medical equipment, and the stress of ensuring proper nutrition for loved ones.
-      
 
-      We've been there, and we've experienced the frustration that comes with navigating complex healthcare systems. 
-      That's why we're committed to providing timely, practical support that allows patients and families to remain 
+
+      We've been there, and we've experienced the frustration that comes with navigating complex healthcare systems.
+      That's why we're committed to providing timely, practical support that allows patients and families to remain
       safe and independent in their own homes.
+
+
+      **Our direct-to-vendor payment model ensures transparency and maximizes your impact.** We work exclusively
+      with licensed and insured contractors for ramps, and we protect patient privacy with strict protocols.
+      Every quarter, we report exactly how many neighbors we've helped and where your donations went.
     actions:
       - label: Read Our Story
         url: /about
@@ -310,6 +315,51 @@ sections:
           - pr-8
         justifyContent: center
 
+  # Approach & Safeguards Section (NEW - Priority 1)
+  - type: GenericSection
+    title:
+      text: our commitment to you
+      color: text-light
+      type: TitleBlock
+      styles:
+        self:
+          textAlign: center
+    subtitle: Transparency & Trust - Your generosity deserves accountability
+    text: >
+      **Direct Vendor Payments** - We pay suppliers directly, never giving cash to applicants. Your donations
+      go straight to equipment vendors, formula suppliers, and licensed contractors.
+
+
+      **Licensed Professionals** - All contractors are licensed, insured, and verified. We maintain strict
+      safety protocols for all programs and conduct quality control on all equipment.
+
+
+      **Privacy Protection** - Patient information stays confidential with HIPAA-level care. We protect
+      patient privacy with strict protocols and never share personal information.
+
+
+      **Quarterly Reports** - Track our impact with detailed updates four times a year. We provide transparent
+      reporting showing exactly how funds are used and how many neighbors we've helped.
+    actions:
+      - label: View Our Latest Impact Report
+        url: /impact
+        showIcon: true
+        icon: arrowRight
+        iconPosition: right
+        style: primary
+        type: Button
+    elementId: 'approach-safeguards-section'
+    colors: bg-primary-fg-light
+    styles:
+      self:
+        padding:
+          - pt-20
+          - pl-8
+          - pb-20
+          - pr-8
+        textAlign: center
+        alignItems: center
+
   # Support CTA Section
   - type: GenericSection
     title:
@@ -340,6 +390,98 @@ sections:
           - pr-8
         textAlign: center
 
+  # How We Help Section (NEW - Priority 2)
+  - type: FeaturedItemsSection
+    title:
+      text: how we help
+      color: text-dark
+      styles:
+        self:
+          textAlign: center
+      type: TitleBlock
+    subtitle: Simple, Transparent Process
+    items:
+      - type: FeaturedItem
+        title: '1. Application'
+        subtitle: Simple Request
+        text: >
+          Submit a simple request. No PHI (Protected Health Information) required
+          in initial application. We make it easy to get started.
+        elementId: 'step-1'
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            textAlign: center
+            borderRadius: large
+            boxShadow: md
+      - title: '2. Review'
+        subtitle: Quick Turnaround
+        text: >
+          Quick turnaround - often same-week for urgent needs. Our team reviews
+          applications promptly to get you the help you need fast.
+        elementId: 'step-2'
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            textAlign: center
+            borderRadius: large
+            boxShadow: md
+      - title: '3. Direct Payment'
+        subtitle: Maximum Impact
+        text: >
+          We pay vendors directly for transparency. Your donations go straight
+          to suppliers, ensuring every dollar makes the maximum impact.
+        elementId: 'step-3'
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            textAlign: center
+            borderRadius: large
+            boxShadow: md
+      - title: '4. Follow-up'
+        subtitle: Ongoing Support
+        text: >
+          We check in to ensure everything works. Our commitment doesn't end
+          with delivery - we make sure you're satisfied and supported.
+        elementId: 'step-4'
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            textAlign: center
+            borderRadius: large
+            boxShadow: md
+    elementId: 'how-we-help-section'
+    variant: four-col-grid
+    colors: bg-neutralAlt-fg-dark
+    styles:
+      self:
+        padding:
+          - pt-20
+          - pl-8
+          - pb-20
+          - pr-8
+        justifyContent: center
+
   # Programs/Articles Section (article-style cards)
   - type: FeaturedItemsSection
     title:
@@ -349,14 +491,15 @@ sections:
         self:
           textAlign: center
       type: TitleBlock
-    subtitle: Practical support for mobility, nutrition, and dignity
+    subtitle: Practical support for mobility, nutrition, and dignity. Fast-turnaround assistance when insurance falls short.
     items:
       - type: FeaturedItem
         title: Wheelchair Ramps
         subtitle: Safe Access to Homes
         text: >
-          Custom-built wheelchair ramps providing safe, accessible entry to homes for individuals 
-          with mobility challenges. We handle permits, construction, and ensure ADA compliance.
+          Funding and coordinating construction of safe home access ramps through licensed and insured
+          contractors with strict safety protocols. ADA compliance guaranteed. Custom-built wheelchair
+          ramps providing safe, accessible entry to homes for individuals with mobility challenges.
         actions:
           - label: Learn More
             url: /programs/wheelchair-ramps
@@ -386,11 +529,12 @@ sections:
               borderRadius: large
               margin:
                 - mb-4
-      - title: Durable Medical Equipment
+      - title: DME Micro-Grants
         subtitle: Essential Medical Supplies
         text: >
-          Financial assistance for wheelchairs, walkers, hospital beds, and other mobility aids 
-          when insurance coverage is insufficient or denied.
+          Fast-turnaround micro-grants ($100-$500) for critical equipment like rollators with seats,
+          heel-protective boots, and fall-alert devices that are often denied by insurance.
+          When insurance falls short, we step in.
         actions:
           - label: Learn More
             url: /programs/dme-grants
@@ -422,8 +566,9 @@ sections:
       - title: Tube Feeding Formula
         subtitle: Essential Nutrition Support
         text: >
-          Monthly supply of specialized formula for patients who cannot eat by mouth, ensuring 
-          proper nutrition and preventing malnutrition complications.
+          Direct-to-vendor subsidies ensuring patients reliant on enteral nutrition have consistent
+          access to medically necessary formula not covered by insurance. Monthly supply of specialized
+          formula for patients who cannot eat by mouth, preventing malnutrition complications.
         actions:
           - label: Learn More
             url: /programs/tube-feeding
@@ -452,8 +597,42 @@ sections:
               - pr-8
             borderRadius: large
             textAlign: left
+      - title: Holiday Stockings
+        subtitle: Seasonal Care Packages
+        text: >
+          Annual program delivering comfort and care items to patients during the holiday season,
+          easing the burden of illness with dignity and community support. Holiday care packages
+          filled with essential items, personal care products, and seasonal treats.
+        actions:
+          - label: Learn More
+            url: /programs/holiday-stockings
+            showIcon: true
+            icon: arrowRight
+            iconPosition: right
+            style: primary
+            type: Link
+        image:
+          url: /images/programs/holiday-stockings.jpg
+          altText: Holiday care packages
+          type: ImageBlock
+          styles:
+            self:
+              borderRadius: large
+              margin:
+                - mb-4
+        elementId: 'holiday-stockings-program'
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            borderRadius: large
+            textAlign: left
     elementId: 'programs-section'
-    variant: three-col-grid
+    variant: two-col-grid
     colors: bg-neutral-fg-dark
     styles:
       self:
@@ -473,14 +652,32 @@ sections:
       styles:
         self:
           textAlign: center
-    subtitle: ''
+    subtitle: Your Donation Goes Directly To Our Neighbors
     text: >
-      Every dollar you donate goes directly to helping Georgia residents in need. Whether it's building a wheelchair ramp, 
+      Every dollar you donate goes directly to helping Georgia residents in need. Whether it's building a wheelchair ramp,
       providing medical equipment, or ensuring proper nutrition, your support makes a real difference.
-      
 
-      All donations support wheelchair ramps, medical equipment, nutrition supplies, and holiday care packages. 
-      We would love to be able to supply the needs of all our neighbors with your help and support!
+
+      **Here's the Impact of Your Gift:**
+
+
+      • **$25** - Supplies for one holiday stocking
+
+
+      • **$50** - Partial DME micro-grant
+
+
+      • **$100** - One complete DME micro-grant
+
+
+      • **$250** - One month of tube feeding formula
+
+
+      • **$500** - Partial wheelchair ramp funding
+
+
+      All donations are tax-deductible. We would love to be able to supply the needs of all our neighbors with
+      your help and support!
     actions:
       - label: Donate $25
         url: '#donate-form'

@@ -1,12 +1,12 @@
 {
     "logo": {
-        "url": "/images/logo.png",
+        "url": "/images/logo-modern.svg",
         "altText": "Good Neighbor Health & Mobility Project",
         "styles": {
             "self": {
-                "margin": ["mr-3"],
-                "maxWidth": "max-w-12",
-                "height": "h-10"
+                "margin": ["mr-4"],
+                "maxWidth": "max-w-48",
+                "height": "h-12"
             }
         },
         "type": "ImageBlock"
@@ -36,6 +36,20 @@
             "label": "Impact",
             "altText": "Our Impact",
             "url": "/impact",
+            "style": "link",
+            "type": "Link"
+        },
+        {
+            "label": "Our Approach",
+            "altText": "How We Work",
+            "url": "/approach",
+            "style": "link",
+            "type": "Link"
+        },
+        {
+            "label": "FAQ",
+            "altText": "Frequently Asked Questions",
+            "url": "/faq",
             "style": "link",
             "type": "Link"
         }

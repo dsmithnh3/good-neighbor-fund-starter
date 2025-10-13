@@ -31,9 +31,9 @@ sections:
         flexDirection: row
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
   - type: GenericSection
     title:
       text: Our Mission
@@ -51,9 +51,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
         textAlign: center
   - type: FeaturedItemsSection
     title:
@@ -164,9 +164,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
   - type: GenericSection
     title:
       text: Our Story
@@ -190,9 +190,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
         textAlign: center
   - type: GenericSection
     title:
@@ -219,9 +219,9 @@ sections:
       self:
         padding:
           - pt-16
-          - pl-16
+          - pl-8
           - pb-16
-          - pr-16
+          - pr-8
         textAlign: center
 seo:
   metaTitle: About Us - Good Neighbor Mobility Fund
