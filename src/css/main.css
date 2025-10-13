@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,6 +7,9 @@
 @layer base {
     body {
         @apply text-base;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: #1a1a1a;
     }
     h1,
     .h1,
@@ -18,8 +21,9 @@
     .h4,
     h5,
     h6 {
-        @apply break-words;
-        line-height: 1.2;
+        @apply break-words font-medium;
+        line-height: 1.25;
+        color: #1a1a1a;
     }
 }
 
@@ -125,18 +129,44 @@
 
     /* Buttons */
     .sb-component-button {
-        @apply inline-flex justify-center items-center text-center border transition duration-200 ease-in hover:-translate-y-1;
+        @apply inline-flex justify-center items-center text-center border transition-all duration-300 ease-in-out;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .sb-component-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     /* Links */
     .sb-component-link {
-        @apply inline-flex justify-center items-center text-center transition duration-200 ease-linear;
+        @apply inline-flex justify-center items-center text-center transition-all duration-300 ease-in-out;
     }
     .sb-component-link-primary {
-        @apply text-primary hover:underline;
+        @apply text-primary font-medium;
+        position: relative;
+    }
+    .sb-component-link-primary:hover {
+        color: #2856a3;
+    }
+    .sb-component-link-primary::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 50%;
+        background-color: currentColor;
+        transition: all 0.3s ease-in-out;
+        transform: translateX(-50%);
+    }
+    .sb-component-link-primary:hover::after {
+        width: 100%;
     }
     .sb-component-link-secondary {
-        @apply text-current hover:text-primary;
+        @apply text-current font-medium;
+    }
+    .sb-component-link-secondary:hover {
+        @apply text-primary;
     }
 
     /* Form controls */
@@ -174,7 +204,22 @@
         @apply opacity-100;
     }
 
-    /* Color palettes */
+    /* Card and section enhancements */
+    .sb-card {
+        transition: all 0.3s ease-in-out;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    .sb-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+    
+    .sb-section {
+        position: relative;
+    }
+    
+    /* Enhanced color palettes */
     .bg-light-fg-dark,
     .sb-card.bg-light-fg-dark {
         @apply text-dark bg-light;
