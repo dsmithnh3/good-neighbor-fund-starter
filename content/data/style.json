@@ -1,9 +1,13 @@
 {
     "light": "#ffffff",
-    "dark": "#1a1a1a",
-    "neutral": "#f8f9fa",
-    "neutralAlt": "#f1f3f4",
-    "primary": "#3567b8",
+    "dark": "#0B1F3F",
+    "neutral": "#F5F7FA",
+    "neutralAlt": "#E8EDF3",
+    "primary": "#0B1F3F",
+    "primaryLight": "#1a3a5c",
+    "accent": "#2d5a8c",
+    "success": "#22c55e",
+    "info": "#3b82f6",
     "fontBody": "sans",
     "fontHeadlines": "sans",
     "h1": {

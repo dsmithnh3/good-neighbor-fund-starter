@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Good Neighbor Enhanced Theme */
+@import './good-neighbor-theme.css';
+@import './enhanced-sections.css';
+
 @layer base {
     body {
         @apply text-base;

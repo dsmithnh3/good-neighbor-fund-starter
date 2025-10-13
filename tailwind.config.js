@@ -6,9 +6,28 @@ module.exports = {
     safelist: [
         'text-neutral',
         'text-light',
+        'text-primary',
+        'text-accent',
+        'bg-primary-fg-light',
+        'bg-primaryLight-fg-light',
+        'bg-accent-fg-light',
+        'bg-light-fg-dark',
+        'bg-neutral-fg-dark',
+        'bg-neutralAlt-fg-dark',
+        'minHeight',
+        'min-h-screen',
         {
             pattern: /(m|p)(t|b|l|r)-(0|px|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96)/
         },
+        {
+            pattern: /bg-(primary|primaryLight|accent|success|info|neutral|neutralAlt|light|dark)/
+        },
+        {
+            pattern: /text-(primary|primaryLight|accent|success|info|neutral|light|dark)/
+        },
+        {
+            pattern: /border-(primary|primaryLight|accent|neutral|neutralAlt)/
+        }
     ],
     theme: {
         extend: {
@@ -20,7 +39,11 @@ module.exports = {
                 dark: themeStyle.dark,
                 neutral: themeStyle.neutral,
                 neutralAlt: themeStyle.neutralAlt,
-                primary: themeStyle.primary
+                primary: themeStyle.primary,
+                primaryLight: themeStyle.primaryLight || '#1a3a5c',
+                accent: themeStyle.accent || '#2d5a8c',
+                success: themeStyle.success || '#22c55e',
+                info: themeStyle.info || '#3b82f6'
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],

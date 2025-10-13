@@ -1,0 +1,685 @@
+/**
+ * Good Neighbor Health & Mobility Project
+ * Custom Theme - Inspired by Life on Life's Terms
+ * Colors match the logo's navy blue palette
+ */
+
+:root {
+    /* Logo-based Color Palette */
+    --color-primary: #0B1F3F;           /* Dark navy blue from logo */
+    --color-primary-light: #1a3a5c;     /* Lighter navy */
+    --color-primary-hover: #0a1930;     /* Darker navy for hover */
+    --color-accent: #2d5a8c;            /* Medium blue accent */
+    --color-success: #22c55e;           /* Green for success states */
+    --color-info: #3b82f6;              /* Blue for info */
+    
+    /* Neutral Colors */
+    --color-light: #ffffff;
+    --color-neutral: #F5F7FA;           /* Light blue-gray background */
+    --color-neutral-alt: #E8EDF3;       /* Slightly darker neutral */
+    --color-neutral-border: #D1D9E6;    /* Border color */
+    --color-text-dark: #1F2937;         /* Body text */
+    --color-text-muted: #6B7280;        /* Muted text */
+    
+    /* Spacing System - matching Life on Life's Terms */
+    --spacing-section: 100px;
+    --spacing-section-mobile: 60px;
+    --spacing-card: 30px;
+    --spacing-element: 15px;
+    
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    --line-height-relaxed: 1.6;
+    --line-height-tight: 1.25;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(11, 31, 63, 0.05);
+    --shadow-md: 0 4px 6px rgba(11, 31, 63, 0.07);
+    --shadow-lg: 0 10px 15px rgba(11, 31, 63, 0.1);
+    --shadow-xl: 0 20px 25px rgba(11, 31, 63, 0.15);
+    --shadow-hover: 0 12px 32px rgba(11, 31, 63, 0.18);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 300ms ease-in-out;
+    --transition-slow: 500ms ease-in-out;
+}
+
+/* ========================================
+   Enhanced Base Styles
+   ======================================== */
+
+body {
+    font-family: var(--font-primary);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-dark);
+    background-color: var(--color-neutral);
+}
+
+/* ========================================
+   Typography Enhancements
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-primary);
+    font-weight: 600;
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.25rem;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    text-align: center;
+    text-transform: lowercase;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: 3rem;
+}
+
+/* ========================================
+   Section Layouts (Life on Life's Terms Style)
+   ======================================== */
+
+.section-primary {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: var(--spacing-section) 0;
+}
+
+.section-light {
+    background-color: var(--color-light);
+    color: var(--color-text-dark);
+    padding: var(--spacing-section) 0;
+}
+
+.section-neutral {
+    background-color: var(--color-neutral);
+    color: var(--color-text-dark);
+    padding: var(--spacing-section) 0;
+}
+
+.section-accent {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    padding: var(--spacing-section) 0;
+}
+
+/* Alternating section pattern */
+.section-alternating:nth-child(odd) {
+    background-color: var(--color-light);
+}
+
+.section-alternating:nth-child(even) {
+    background-color: var(--color-neutral);
+}
+
+@media (max-width: 768px) {
+    .section-primary,
+    .section-light,
+    .section-neutral,
+    .section-accent {
+        padding: var(--spacing-section-mobile) 0;
+    }
+}
+
+/* ========================================
+   Enhanced Buttons
+   ======================================== */
+
+.btn-enhanced {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-decoration: none;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary-enhanced {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-color: var(--color-primary);
+}
+
+.btn-primary-enhanced:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary-enhanced {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary-enhanced:hover {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-accent-enhanced {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    border-color: var(--color-accent);
+}
+
+.btn-accent-enhanced:hover {
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ========================================
+   Card Enhancements
+   ======================================== */
+
+.card-enhanced {
+    background: var(--color-light);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-card);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    border: 1px solid var(--color-neutral-border);
+}
+
+.card-enhanced:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-accent);
+}
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: var(--radius-md);
+    color: var(--color-light);
+}
+
+.card-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Feature Cards (3-column grid like Life on Life's Terms) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+/* ========================================
+   Hero Section (Life on Life's Terms Style)
+   ======================================== */
+
+.hero-enhanced {
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-light);
+    padding: var(--spacing-section) 2rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--color-light);
+    line-height: var(--line-height-tight);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: var(--line-height-relaxed);
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   Enhanced Links
+   ======================================== */
+
+.link-enhanced {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.link-enhanced::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width var(--transition-base);
+}
+
+.link-enhanced:hover {
+    color: var(--color-primary);
+}
+
+.link-enhanced:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   Donation Amount Selector (Life on Life's Terms Style)
+   ======================================== */
+
+.donation-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.donation-amount {
+    padding: 1rem 2rem;
+    border: 2px solid var(--color-neutral-border);
+    border-radius: var(--radius-md);
+    background: var(--color-light);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--color-primary);
+}
+
+.donation-amount:hover {
+    border-color: var(--color-accent);
+    background: var(--color-neutral);
+    transform: translateY(-2px);
+}
+
+.donation-amount.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-light);
+}
+
+/* ========================================
+   About Section Enhancement
+   ======================================== */
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-highlight {
+    font-size: 1.125rem;
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-muted);
+    margin: 2rem 0;
+}
+
+.about-organization-name {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* ========================================
+   Mission/Vision/Goal Cards (3-column layout)
+   ======================================== */
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin: 3rem 0;
+}
+
+.mission-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--color-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.mission-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+}
+
+.mission-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: 50%;
+    color: var(--color-light);
+}
+
+.mission-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.mission-description {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+}
+
+/* ========================================
+   Contact Section Enhancement
+   ======================================== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.contact-form-enhanced input,
+.contact-form-enhanced textarea,
+.contact-form-enhanced select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--color-neutral-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+    background: var(--color-light);
+}
+
+.contact-form-enhanced input:focus,
+.contact-form-enhanced textarea:focus,
+.contact-form-enhanced select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(45, 90, 140, 0.1);
+}
+
+.contact-info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-neutral-border);
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-neutral);
+    border-radius: var(--radius-sm);
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ========================================
+   Footer Enhancement (Green accent like Life on Life's Terms)
+   ======================================== */
+
+.footer-enhanced {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-light);
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link {
+    color: var(--color-light);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    transition: all var(--transition-fast);
+}
+
+.footer-link:hover {
+    color: var(--color-accent);
+    padding-left: 0.5rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 2rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.text-primary {
+    color: var(--color-primary) !important;
+}
+
+.text-accent {
+    color: var(--color-accent) !important;
+}
+
+.text-muted {
+    color: var(--color-text-muted) !important;
+}
+
+.bg-primary {
+    background-color: var(--color-primary) !important;
+}
+
+.bg-light {
+    background-color: var(--color-light) !important;
+}
+
+.bg-neutral {
+    background-color: var(--color-neutral) !important;
+}
+
+.container-enhanced {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ========================================
+   Responsive Utilities
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .features-grid,
+    .mission-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-section: 60px;
+    }
+    
+    .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .features-grid,
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .donation-selector {
+        flex-direction: column;
+    }
+    
+    .donation-amount {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   Animation Enhancements
+   ======================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* ========================================
+   Accessibility Enhancements
+   ======================================== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+    .hero-enhanced,
+    .btn-enhanced,
+    .footer-enhanced {
+        background: none !important;
+        color: black !important;
+    }
+    
+    .card-enhanced {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+}
+

@@ -121,7 +121,12 @@
             "type": "Link"
         }
     ],
-    "copyrightText": "© 2024 Good Neighbor Health & Mobility Project, Inc. All rights reserved. 501(c)(3) status pending.",
-    "colors": "bg-dark-fg-light",
+    "copyrightText": "© 2025 Good Neighbor Health & Mobility Project, Inc. All rights reserved. 501(c)(3) status pending.",
+    "colors": "bg-primary-fg-light",
+    "styles": {
+        "self": {
+            "padding": ["pt-16", "pb-8", "pl-6", "pr-6"]
+        }
+    },
     "type": "Footer"
 }
