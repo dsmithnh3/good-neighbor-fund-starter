@@ -36,8 +36,8 @@ export default function GenericSection(props) {
                     mapStyles({ alignItems: styles?.self?.justifyContent ?? 'flex-start' }),
                     /* handle vertical positioning of content on large screens if it's a two col layout */
                     hasMedia && hasTextContent && hasXDirection ? mapAlignItemsStyles(alignItems) : undefined,
-                    'gap-x-12',
-                    'gap-y-16'
+                    'gap-x-8 md:gap-x-12',
+                    'gap-y-12 md:gap-y-16'
                 )}
             >
                 {hasTextContent && (

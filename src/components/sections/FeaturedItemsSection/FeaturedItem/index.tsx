@@ -45,21 +45,22 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                 'group',
                 colors,
                 'h-full flex flex-col',
-                'backdrop-blur-sm bg-white/90',
-                'border border-neutral/20',
-                'hover:border-primary/30',
-                'transition-all duration-300 ease-out',
-                'hover:shadow-card-hover',
+                'backdrop-blur-sm bg-white/95',
+                'border border-neutral/30',
+                'hover:border-primary/40',
+                'transition-all duration-400 ease-out',
+                'hover:shadow-card-hover hover:scale-105',
+                'rounded-xl overflow-hidden',
                 styles?.self?.margin ? mapStyles({ margin: styles?.self?.margin }) : undefined,
                 styles?.self?.textAlign ? mapStyles({ textAlign: styles?.self?.textAlign }) : undefined
             )}
             data-sb-field-path={fieldPath}
         >
-            <div className={classNames('w-full h-full', 'flex flex-col', 'p-8')}>
+            <div className={classNames('w-full h-full', 'flex flex-col', 'p-6 sm:p-8')}>
                 {hasImage && (
                     <div className={classNames(
                         'flex items-center justify-center mb-6',
-                        'w-20 h-20 mx-auto md:mx-0',
+                        'w-16 h-16 sm:w-20 sm:h-20 mx-auto',
                         'bg-gradient-to-br from-primary/10 to-accent/10',
                         'rounded-xl',
                         'transition-all duration-300',
@@ -68,7 +69,7 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                         <ImageBlock
                             {...image}
                             className={classNames(
-                                'modern-icon-xl',
+                                'modern-icon-lg sm:modern-icon-xl',
                                 'object-contain',
                                 'transition-all duration-300 group-hover:scale-110',
                                 'filter drop-shadow-sm'
@@ -79,7 +80,7 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                 )}
                 <div
                     className={classNames('flex-1 flex flex-col', {
-                        'text-center md:text-left': true
+                        'text-center': true
                     })}
                 >
                     <div>
@@ -92,10 +93,10 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                         {title && (
                             <TitleTag
                                 className={classNames(
-                                    'modern-heading text-2xl font-bold leading-tight',
+                                    'modern-heading text-lg sm:text-xl lg:text-2xl font-bold leading-tight',
                                     {
                                         'mt-2': tagline,
-                                        'mb-4': subtitle || text
+                                        'mb-3 sm:mb-4': subtitle || text
                                     }
                                 )}
                                 {...(fieldPath && { 'data-sb-field-path': '.title' })}
@@ -106,10 +107,10 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                         {subtitle && (
                             <p
                                 className={classNames(
-                                    'text-lg font-medium text-slate-600 leading-relaxed',
+                                    'text-sm sm:text-base lg:text-lg font-medium text-slate-600 leading-relaxed',
                                     {
                                         'mt-2': tagline || title,
-                                        'mb-4': text
+                                        'mb-3 sm:mb-4': text
                                     }
                                 )}
                                 {...(fieldPath && { 'data-sb-field-path': '.subtitle' })}
@@ -126,7 +127,7 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                                         p: {
                                             component: 'p',
                                             props: {
-                                                className: 'modern-text mb-4'
+                                                className: 'modern-text mb-3 text-sm sm:text-base leading-relaxed'
                                             }
                                         }
                                     }
@@ -140,8 +141,8 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                         {actions.length > 0 && (
                             <div
                                 className={classNames(
-                                    'mt-8 pt-6',
-                                    'flex flex-wrap gap-3',
+                                    'mt-6 pt-4',
+                                    'flex flex-wrap gap-2 sm:gap-3',
                                     {
                                         'mt-auto border-t border-neutral/10': !(tagline || title || subtitle || text)
                                     }
@@ -155,7 +156,7 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                                         className={classNames(
                                             'modern-button modern-button-primary',
                                             'inline-flex items-center gap-2',
-                                            'px-4 py-2 text-sm font-semibold',
+                                            'px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold',
                                             'group/action',
                                             action.className
                                         )}

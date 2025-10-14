@@ -74,12 +74,14 @@
 .modern-card {
     @apply bg-white rounded-xl border border-neutral;
     box-shadow: var(--shadow-md);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
 }
 
 .modern-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px) scale(1.03);
     box-shadow: var(--shadow-xl);
+    border-color: rgba(59, 130, 246, 0.3);
 }
 
 .modern-card-feature {
@@ -106,16 +108,16 @@
 
 /* Modern Section Layouts */
 .modern-section {
-    @apply py-20 px-4;
+    @apply py-12 sm:py-16 lg:py-20 px-4;
 }
 
 .modern-section-alt {
-    @apply py-24 px-4;
+    @apply py-16 sm:py-20 lg:py-24 px-4;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
 .modern-section-primary {
-    @apply py-24 px-4 text-white;
+    @apply py-16 sm:py-20 lg:py-24 px-4 text-white;
     background: var(--gradient-primary);
     position: relative;
 }
@@ -139,15 +141,27 @@
 }
 
 .modern-grid-2 {
-    @apply md:grid-cols-2;
+    @apply sm:grid-cols-1 md:grid-cols-2;
 }
 
 .modern-grid-3 {
-    @apply md:grid-cols-2 lg:grid-cols-3;
+    @apply sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
 }
 
 .modern-grid-4 {
-    @apply md:grid-cols-2 lg:grid-cols-4;
+    @apply sm:grid-cols-2 md:grid-cols-4;
+}
+
+/* Specific Four Column Layout Optimizations */
+.modern-grid-4 > * {
+    @apply flex flex-col;
+    min-height: 200px;
+}
+
+@media (max-width: 640px) {
+    .modern-grid-4 {
+        @apply grid-cols-1 gap-6;
+    }
 }
 
 /* Enhanced Focus States */
@@ -270,12 +284,20 @@
 /* Responsive Utilities */
 @media (max-width: 640px) {
     .modern-section {
-        @apply py-16 px-4;
+        @apply py-12 px-4;
     }
     
     .modern-section-alt,
     .modern-section-primary {
-        @apply py-20 px-4;
+        @apply py-16 px-4;
+    }
+    
+    .modern-card {
+        border-radius: 0.75rem;
+    }
+    
+    .modern-card:hover {
+        transform: translateY(-4px) scale(1.02);
     }
 }
 

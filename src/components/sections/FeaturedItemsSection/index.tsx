@@ -99,6 +99,8 @@ function FeaturedItemVariants(props) {
     switch (variant) {
         case 'two-col-grid':
             return <FeaturedItemsTwoColGrid {...rest} />;
+        case 'four-col-grid':
+            return <FeaturedItemsFourColGrid {...rest} />;
         case 'small-list':
             return <FeaturedItemsSmallList {...rest} />;
         case 'big-list':
@@ -240,6 +242,56 @@ function FeaturedItemsBigList(props) {
                 <FeaturedItem key={index} {...item} hasSectionTitle={hasSectionTitle} {...(hasAnnotations && { 'data-sb-field-path': `.${index}` })} />
             ))}
         </div>
+    );
+}
+
+function FeaturedItemsFourColGrid(props) {
+    const { items = [], hasTopMargin, hasSectionTitle, enableAnnotations } = props;
+    if (items.length === 0) {
+        return null;
+    }
+    const FeaturedItem = getComponent('FeaturedItem');
+    
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.08
+            }
+        }
+    };
+    
+    return (
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className={classNames(
+                'w-full modern-grid modern-grid-4',
+                'gap-6 md:gap-8',
+                { 'mt-16': hasTopMargin }
+            )}
+            {...(enableAnnotations && { 'data-sb-field-path': '.items' })}
+        >
+            {items.map((item, index) => (
+                <motion.div
+                    key={index}
+                    variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                    }}
+                    className="h-full"
+                >
+                    <FeaturedItem 
+                        {...item} 
+                        hasSectionTitle={hasSectionTitle} 
+                        {...(enableAnnotations && { 'data-sb-field-path': `.${index}` })} 
+                    />
+                </motion.div>
+            ))}
+        </motion.div>
     );
 }
 

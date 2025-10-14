@@ -46,7 +46,7 @@ export default function Action(props) {
     const type = props.__metadata?.modelName;
 
     // Enhanced accessibility attributes
-    const isExternal = url && url.startsWith('http') && !url.includes(window?.location?.hostname);
+    const isExternal = url && url.startsWith('http') && (typeof window !== 'undefined' ? !url.includes(window.location.hostname) : true);
     const accessibilityProps = {
         'aria-label': altText || label,
         ...(isExternal && { 

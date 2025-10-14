@@ -248,9 +248,9 @@
         backdrop-filter: blur(10px);
     }
     .sb-card:hover {
-        transform: translateY(-8px) scale(1.02);
+        transform: translateY(-8px) scale(1.03);
         box-shadow: 0 20px 25px -5px rgba(11, 31, 63, 0.15), 0 8px 10px -6px rgba(11, 31, 63, 0.1);
-        border-color: rgba(59, 130, 246, 0.2);
+        border-color: rgba(59, 130, 246, 0.3);
     }
     
     .sb-section {
