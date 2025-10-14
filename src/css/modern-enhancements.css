@@ -1,0 +1,340 @@
+/* Modern 2025 UI Enhancements */
+
+:root {
+    /* Modern CSS Variables */
+    --gradient-primary: linear-gradient(135deg, #0B1F3F 0%, #1E40AF 100%);
+    --gradient-accent: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);
+    --gradient-success: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    
+    /* Modern Shadow System */
+    --shadow-xs: 0 1px 2px 0 rgba(11, 31, 63, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(11, 31, 63, 0.1), 0 1px 2px -1px rgba(11, 31, 63, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(11, 31, 63, 0.1), 0 2px 4px -2px rgba(11, 31, 63, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(11, 31, 63, 0.1), 0 4px 6px -4px rgba(11, 31, 63, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(11, 31, 63, 0.1), 0 8px 10px -6px rgba(11, 31, 63, 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgba(11, 31, 63, 0.25);
+    
+    /* Modern Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-3xl: 2rem;
+    
+    /* Modern Spacing Scale */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+}
+
+/* Enhanced Interactive Elements */
+.modern-button {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    box-shadow: var(--shadow-sm);
+    letter-spacing: -0.01em;
+}
+
+.modern-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.modern-button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.modern-button-primary {
+    @apply bg-primary text-white border border-transparent;
+    background: var(--gradient-primary);
+}
+
+.modern-button-primary:hover:not(:disabled) {
+    @apply focus:ring-primary;
+    filter: brightness(1.1);
+}
+
+.modern-button-secondary {
+    @apply bg-white text-primary border-2 border-primary;
+}
+
+.modern-button-secondary:hover:not(:disabled) {
+    @apply bg-primary text-white focus:ring-primary;
+}
+
+/* Enhanced Card Components */
+.modern-card {
+    @apply bg-white rounded-xl border border-neutral;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.modern-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.modern-card-feature {
+    @apply p-8 text-center;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Modern Typography */
+.modern-heading {
+    @apply font-bold tracking-tight;
+    background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modern-text {
+    @apply text-slate-600 leading-relaxed;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+/* Modern Section Layouts */
+.modern-section {
+    @apply py-12 sm:py-16 lg:py-20 px-4;
+}
+
+.modern-section-alt {
+    @apply py-16 sm:py-20 lg:py-24 px-4;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.modern-section-primary {
+    @apply py-16 sm:py-20 lg:py-24 px-4 text-white;
+    background: var(--gradient-primary);
+    position: relative;
+}
+
+.modern-section-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.2) 0%, transparent 50%);
+}
+
+.modern-section-primary > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Modern Grid Layouts */
+.modern-grid {
+    @apply grid gap-8;
+}
+
+.modern-grid-2 {
+    @apply sm:grid-cols-1 md:grid-cols-2;
+}
+
+.modern-grid-3 {
+    @apply sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+}
+
+.modern-grid-4 {
+    @apply sm:grid-cols-2 md:grid-cols-4;
+}
+
+/* Specific Four Column Layout Optimizations */
+.modern-grid-4 > * {
+    @apply flex flex-col;
+    min-height: 200px;
+}
+
+@media (max-width: 640px) {
+    .modern-grid-4 {
+        @apply grid-cols-1 gap-6;
+    }
+}
+
+/* Enhanced Focus States */
+.modern-focus {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    transition: all 0.2s ease-out;
+}
+
+/* Modern Link Styles */
+.modern-link {
+    @apply text-primary font-medium;
+    position: relative;
+    transition: all 0.3s ease-out;
+}
+
+.modern-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
+}
+
+.modern-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Modern Form Elements */
+.modern-input {
+    @apply w-full px-4 py-3 border border-neutralAlt rounded-lg;
+    @apply focus:ring-2 focus:ring-primary focus:border-primary;
+    @apply transition-all duration-200;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.modern-input:focus {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+/* Modern Navigation */
+.modern-nav {
+    @apply bg-white/95 backdrop-blur-md border-b border-white/20;
+    box-shadow: var(--shadow-sm);
+}
+
+.modern-nav-sticky {
+    @apply sticky top-0 z-50;
+    backdrop-filter: blur(20px);
+}
+
+/* Modern Animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in-up-delay-1 {
+    animation-delay: 0.1s;
+}
+
+.fade-in-up-delay-2 {
+    animation-delay: 0.2s;
+}
+
+.fade-in-up-delay-3 {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modern Icon Styles */
+.modern-icon {
+    @apply inline-block w-6 h-6;
+    transition: all 0.3s ease-out;
+}
+
+.modern-icon-lg {
+    @apply w-8 h-8;
+}
+
+.modern-icon-xl {
+    @apply w-12 h-12;
+}
+
+/* Modern Gradient Text */
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Modern Glass Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+    .modern-section {
+        @apply py-12 px-4;
+    }
+    
+    .modern-section-alt,
+    .modern-section-primary {
+        @apply py-16 px-4;
+    }
+    
+    .modern-card {
+        border-radius: 0.75rem;
+    }
+    
+    .modern-card:hover {
+        transform: translateY(-4px) scale(1.02);
+    }
+}
+
+/* Dark Mode Support (Future Enhancement) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+        --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .modern-button,
+    .modern-card,
+    .modern-input {
+        border-width: 2px;
+        border-color: currentColor;
+    }
+}

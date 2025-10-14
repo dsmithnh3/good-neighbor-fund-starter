@@ -1,14 +1,12 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 import { mapStylesToClassNames as mapStyles } from '../../../utils/map-styles-to-class-names';
 import { Link, Action } from '../../atoms';
 import ImageBlock from '../../blocks/ImageBlock';
-import ChevronDownIcon from '../../svgs/chevron-down';
-import CloseIcon from '../../svgs/close';
-import MenuIcon from '../../svgs/menu';
 
 export default function Header(props) {
     const { colors = 'bg-light-fg-dark', styles = {}, enableAnnotations } = props;
@@ -17,17 +15,20 @@ export default function Header(props) {
             className={classNames(
                 'sb-component',
                 'sb-component-header',
+                'modern-nav-sticky',
                 colors,
                 'relative',
-                'shadow-header',
+                'shadow-soft',
+                'backdrop-blur-md bg-white/95',
+                'border-b border-neutral/20',
                 styles?.self?.margin ? mapStyles({ padding: styles?.self?.margin }) : undefined,
-                styles?.self?.padding ? mapStyles({ padding: styles?.self?.padding }) : 'p-4',
+                styles?.self?.padding ? mapStyles({ padding: styles?.self?.padding }) : 'py-3 px-4',
                 'z-50'
             )}
             {...(enableAnnotations && { 'data-sb-object-id': props?.__metadata?.id })}
         >
             <div className="mx-auto max-w-7xl">
-                <Link href="#main" className="sr-only">
+                <Link href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md">
                     Skip to main content
                 </Link>
                 <HeaderVariants {...props} />
@@ -186,54 +187,143 @@ function HeaderLogoCenteredPrimaryCentered(props) {
 function MobileMenu(props) {
     const { title, logo, primaryLinks = [], secondaryLinks = [], colors = 'bg-light-fg-dark', styles = {}, enableAnnotations } = props;
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [overlayClass, setOverlayClass] = useState('');
+    const menuRef = useRef(null);
+    const menuButtonRef = useRef(null);
     const router = useRouter();
 
     const openMobileMenu = () => {
         setIsMenuOpen(true);
-        document.body.style.overflow = 'hidden';
+        setOverlayClass('overflow-hidden');
+        document.body.classList.add('overflow-hidden');
+        
+        // Focus management
+        setTimeout(() => {
+            const firstFocusableElement = menuRef.current?.querySelector('a, button');
+            firstFocusableElement?.focus();
+        }, 100);
     };
 
     const closeMobileMenu = () => {
         setIsMenuOpen(false);
-        document.body.style.overflow = 'unset';
+        setOverlayClass('');
+        document.body.classList.remove('overflow-hidden');
+        
+        // Return focus to menu button
+        menuButtonRef.current?.focus();
     };
+
+    // Handle escape key
+    useEffect(() => {
+        const handleEscape = (e) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMobileMenu();
+            }
+        };
+
+        if (isMenuOpen) {
+            document.addEventListener('keydown', handleEscape);
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape);
+        };
+    }, [isMenuOpen]);
 
     useEffect(() => {
         const handleRouteChange = () => {
-            setIsMenuOpen(false);
-            document.body.style.overflow = 'unset';
+            closeMobileMenu();
         };
         router.events.on('routeChangeStart', handleRouteChange);
 
         return () => {
             router.events.off('routeChangeStart', handleRouteChange);
+            document.body.classList.remove('overflow-hidden'); // Cleanup
         };
     }, [router.events]);
 
     return (
         <div className="ml-auto lg:hidden">
-            <button aria-label="Open Menu" title="Open Menu" className="p-2 -mr-1 focus:outline-none" onClick={openMobileMenu}>
-                <span className="sr-only">Open Menu</span>
-                <MenuIcon className="w-6 h-6 fill-current" />
+            <button
+                ref={menuButtonRef}
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-navigation"
+                className="modern-focus p-2 -mr-1 rounded-md hover:bg-black/5 transition-colors duration-200"
+                onClick={isMenuOpen ? closeMobileMenu : openMobileMenu}
+            >
+                <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
+                {isMenuOpen ? (
+                    <X className="w-6 h-6" aria-hidden="true" />
+                ) : (
+                    <Menu className="w-6 h-6" aria-hidden="true" />
+                )}
             </button>
-            <div className={classNames(colors, 'fixed', 'inset-0', styles?.self?.padding ?? 'p-4', 'overflow-y-auto', 'z-10', isMenuOpen ? 'block' : 'hidden')}>
-                <div className="flex flex-col min-h-full">
-                    <div className="flex items-center justify-between mb-10">
-                        {(title || logo?.url) && <SiteLogoLink title={title} logo={logo} enableAnnotations={enableAnnotations} />}
-                        <button aria-label="Close Menu" title="Close Menu" className="p-2 -mr-1 focus:outline-none" onClick={closeMobileMenu}>
-                            <CloseIcon className="w-6 h-6 fill-current" />
-                        </button>
+            
+            <div 
+                className={classNames(
+                    'fixed inset-0 z-50 lg:hidden',
+                    isMenuOpen ? 'block' : 'hidden'
+                )}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="mobile-menu-title"
+            >
+                {/* Backdrop */}
+                <div 
+                    className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+                    aria-hidden="true"
+                    onClick={closeMobileMenu}
+                />
+                
+                {/* Menu panel */}
+                <div 
+                    ref={menuRef}
+                    id="mobile-navigation"
+                    className={classNames(
+                        colors,
+                        'fixed right-0 top-0 h-full w-80 max-w-full',
+                        'glass-effect border-l border-white/20',
+                        styles?.self?.padding ?? 'p-6',
+                        'overflow-y-auto transform transition-transform duration-300 ease-out',
+                        isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                    )}
+                >
+                    <div className="flex flex-col h-full">
+                        <div className="flex items-center justify-between mb-8">
+                            <h2 id="mobile-menu-title" className="sr-only">Navigation menu</h2>
+                            {(title || logo?.url) && (
+                                <SiteLogoLink title={title} logo={logo} enableAnnotations={enableAnnotations} />
+                            )}
+                            <button
+                                className="modern-focus p-2 -mr-2 rounded-md hover:bg-black/5 transition-colors duration-200"
+                                onClick={closeMobileMenu}
+                                aria-label="Close menu"
+                            >
+                                <X className="w-6 h-6" aria-hidden="true" />
+                            </button>
+                        </div>
+                        
+                        <nav className="flex-1 space-y-2" aria-label="Main navigation">
+                            {primaryLinks.length > 0 && (
+                                <div {...(enableAnnotations && { 'data-sb-field-path': 'primaryLinks' })}>
+                                    <h3 className="sr-only">Primary navigation</h3>
+                                    <ul className="space-y-1">
+                                        <ListOfLinks links={primaryLinks} enableAnnotations={enableAnnotations} inMobileMenu />
+                                    </ul>
+                                </div>
+                            )}
+                            
+                            {secondaryLinks.length > 0 && (
+                                <div className="pt-4 mt-4 border-t border-current/10" {...(enableAnnotations && { 'data-sb-field-path': 'secondaryLinks' })}>
+                                    <h3 className="sr-only">Secondary navigation</h3>
+                                    <ul className="space-y-1">
+                                        <ListOfLinks links={secondaryLinks} enableAnnotations={enableAnnotations} inMobileMenu />
+                                    </ul>
+                                </div>
+                            )}
+                        </nav>
                     </div>
-                    {primaryLinks.length > 0 && (
-                        <ul {...(enableAnnotations && { 'data-sb-field-path': 'primaryLinks' })}>
-                            <ListOfLinks links={primaryLinks} enableAnnotations={enableAnnotations} inMobileMenu />
-                        </ul>
-                    )}
-                    {secondaryLinks.length > 0 && (
-                        <ul {...(enableAnnotations && { 'data-sb-field-path': 'secondaryLinks' })}>
-                            <ListOfLinks links={secondaryLinks} enableAnnotations={enableAnnotations} inMobileMenu />
-                        </ul>
-                    )}
                 </div>
             </div>
         </div>
@@ -273,14 +363,15 @@ function ListOfLinks(props) {
                     return (
                         <li
                             key={index}
-                            className={classNames(inMobileMenu ? 'border-t' : 'py-2', {
-                                'py-4': inMobileMenu && link.__metadata.modelName === 'Button'
+                            className={classNames({
+                                'py-2': inMobileMenu,
+                                'py-1': inMobileMenu && link.__metadata.modelName === 'Button'
                             })}
                         >
                             <Action
                                 {...link}
-                                className={classNames('whitespace-nowrap', inMobileMenu ? 'w-full' : 'text-sm', {
-                                    'justify-start py-3': inMobileMenu && link.__metadata.modelName === 'Link'
+                                className={classNames('whitespace-nowrap modern-focus rounded-md', inMobileMenu ? 'w-full justify-start px-3 py-2 text-base' : 'text-sm px-2 py-1', {
+                                    'hover:bg-black/5 transition-colors duration-200': inMobileMenu && link.__metadata.modelName === 'Link'
                                 })}
                                 {...(enableAnnotations && { 'data-sb-field-path': `.${index}` })}
                             />
@@ -347,8 +438,9 @@ function LinkWithSubnav(props) {
                 )}
             >
                 <span {...(fieldPath && { 'data-sb-field-path': '.label' })}>{link.label}</span>
-                <ChevronDownIcon
-                    className={classNames('fill-current', 'shrink-0', 'h-4', 'w-4', isSubNavOpen && 'rotate-180', inMobileMenu ? 'ml-auto' : 'ml-1')}
+                <ChevronDown
+                    className={classNames('shrink-0 h-4 w-4 transition-transform duration-200', isSubNavOpen && 'rotate-180', inMobileMenu ? 'ml-auto' : 'ml-1')}
+                    aria-hidden="true"
                 />
             </button>
             {(link.links ?? []).length > 0 && (

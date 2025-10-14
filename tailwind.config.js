@@ -16,23 +16,44 @@ module.exports = {
         'bg-neutralAlt-fg-dark',
         'minHeight',
         'min-h-screen',
+        'modern-card',
+        'modern-button',
+        'modern-button-primary',
+        'modern-button-secondary',
+        'modern-link',
+        'modern-focus',
+        'modern-icon',
+        'modern-icon-lg',
+        'modern-icon-xl',
+        'modern-section',
+        'modern-nav-sticky',
+        'gradient-text',
+        'glass-effect',
         {
             pattern: /(m|p)(t|b|l|r)-(0|px|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96)/
         },
         {
-            pattern: /bg-(primary|primaryLight|accent|success|info|neutral|neutralAlt|light|dark)/
+            pattern: /bg-(primary|primaryLight|accent|success|info|warning|error|neutral|neutralAlt|light|dark)/
         },
         {
-            pattern: /text-(primary|primaryLight|accent|success|info|neutral|light|dark)/
+            pattern: /text-(primary|primaryLight|accent|success|info|warning|error|neutral|light|dark)/
         },
         {
-            pattern: /border-(primary|primaryLight|accent|neutral|neutralAlt)/
+            pattern: /border-(primary|primaryLight|accent|success|info|warning|error|neutral|neutralAlt)/
+        },
+        {
+            pattern: /shadow-(soft|medium|large|button-hover|card-hover)/
         }
     ],
     theme: {
         extend: {
             boxShadow: {
-                header: '0px 2px 8px rgba(27, 32, 50, .08)'
+                header: '0px 2px 8px rgba(27, 32, 50, .08)',
+                'soft': '0 2px 15px -3px rgba(11, 31, 63, 0.08), 0 10px 20px -2px rgba(11, 31, 63, 0.04)',
+                'medium': '0 10px 25px -3px rgba(11, 31, 63, 0.1), 0 4px 6px -2px rgba(11, 31, 63, 0.05)',
+                'large': '0 20px 25px -5px rgba(11, 31, 63, 0.1), 0 10px 10px -5px rgba(11, 31, 63, 0.04)',
+                'button-hover': '0 8px 25px rgba(11, 31, 63, 0.15)',
+                'card-hover': '0 20px 25px -5px rgba(11, 31, 63, 0.15), 0 8px 10px -6px rgba(11, 31, 63, 0.1)'
             },
             colors: {
                 light: themeStyle.light,
@@ -40,10 +61,12 @@ module.exports = {
                 neutral: themeStyle.neutral,
                 neutralAlt: themeStyle.neutralAlt,
                 primary: themeStyle.primary,
-                primaryLight: themeStyle.primaryLight || '#1a3a5c',
-                accent: themeStyle.accent || '#2d5a8c',
-                success: themeStyle.success || '#22c55e',
-                info: themeStyle.info || '#3b82f6'
+                primaryLight: themeStyle.primaryLight || '#1E40AF',
+                accent: themeStyle.accent || '#3B82F6',
+                success: themeStyle.success || '#10B981',
+                info: themeStyle.info || '#06B6D4',
+                warning: themeStyle.warning || '#F59E0B',
+                error: themeStyle.error || '#EF4444'
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
