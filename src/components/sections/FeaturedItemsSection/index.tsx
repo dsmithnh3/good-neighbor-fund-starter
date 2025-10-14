@@ -111,38 +111,102 @@ function FeaturedItemVariants(props) {
 }
 
 function FeaturedItemsThreeColGrid(props) {
-    const { items = [], hasTopMargin, hasSectionTitle, hasAnnotations } = props;
+    const { items = [], hasTopMargin, hasSectionTitle, enableAnnotations } = props;
     if (items.length === 0) {
         return null;
     }
     const FeaturedItem = getComponent('FeaturedItem');
+    
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+    
     return (
-        <div
-            className={classNames('w-full', 'grid', 'gap-10', 'sm:grid-cols-2', 'lg:grid-cols-3', { 'mt-12': hasTopMargin })}
-            {...(hasAnnotations && { 'data-sb-field-path': '.items' })}
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className={classNames(
+                'w-full modern-grid modern-grid-3',
+                'gap-8 md:gap-10 lg:gap-12',
+                { 'mt-16': hasTopMargin }
+            )}
+            {...(enableAnnotations && { 'data-sb-field-path': '.items' })}
         >
             {items.map((item, index) => (
-                <FeaturedItem key={index} {...item} hasSectionTitle={hasSectionTitle} {...(hasAnnotations && { 'data-sb-field-path': `.${index}` })} />
+                <motion.div
+                    key={index}
+                    variants={{
+                        hidden: { opacity: 0, y: 30 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                    }}
+                    className="h-full"
+                >
+                    <FeaturedItem 
+                        {...item} 
+                        hasSectionTitle={hasSectionTitle} 
+                        {...(enableAnnotations && { 'data-sb-field-path': `.${index}` })} 
+                    />
+                </motion.div>
             ))}
-        </div>
+        </motion.div>
     );
 }
 
 function FeaturedItemsTwoColGrid(props) {
-    const { items = [], hasTopMargin, hasSectionTitle, hasAnnotations } = props;
+    const { items = [], hasTopMargin, hasSectionTitle, enableAnnotations } = props;
     if (items.length === 0) {
         return null;
     }
     const FeaturedItem = getComponent('FeaturedItem');
+    
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15
+            }
+        }
+    };
+    
     return (
-        <div
-            className={classNames('w-full', 'grid', 'gap-10', 'sm:grid-cols-2', { 'mt-12': hasTopMargin })}
-            {...(hasAnnotations && { 'data-sb-field-path': '.items' })}
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className={classNames(
+                'w-full modern-grid modern-grid-2',
+                'gap-8 md:gap-12 lg:gap-16',
+                { 'mt-16': hasTopMargin }
+            )}
+            {...(enableAnnotations && { 'data-sb-field-path': '.items' })}
         >
             {items.map((item, index) => (
-                <FeaturedItem key={index} {...item} hasSectionTitle={hasSectionTitle} {...(hasAnnotations && { 'data-sb-field-path': `.${index}` })} />
+                <motion.div
+                    key={index}
+                    variants={{
+                        hidden: { opacity: 0, y: 40 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+                    }}
+                    className="h-full"
+                >
+                    <FeaturedItem 
+                        {...item} 
+                        hasSectionTitle={hasSectionTitle} 
+                        {...(enableAnnotations && { 'data-sb-field-path': `.${index}` })} 
+                    />
+                </motion.div>
             ))}
-        </div>
+        </motion.div>
     );
 }
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Markdown from 'markdown-to-jsx';
+import { ArrowRight } from 'lucide-react';
 
 import { mapStylesToClassNames as mapStyles } from '../../../../utils/map-styles-to-class-names';
 import Action from '../../../atoms/Action';
@@ -40,13 +41,15 @@ export default function FeaturedItem(props: FeaturedItemProps) {
         <div
             id={elementId}
             className={classNames(
-                'sb-card',
+                'modern-card',
+                'group',
                 colors,
-                'transition-all duration-300 ease-in-out',
-                'transform hover:-translate-y-1 hover:shadow-xl hover:scale-[1.02]',
-                'border border-gray-100',
-                'rounded-xl overflow-hidden',
                 'h-full flex flex-col',
+                'backdrop-blur-sm bg-white/90',
+                'border border-neutral/20',
+                'hover:border-primary/30',
+                'transition-all duration-300 ease-out',
+                'hover:shadow-card-hover',
                 styles?.self?.margin ? mapStyles({ margin: styles?.self?.margin }) : undefined,
                 styles?.self?.textAlign ? mapStyles({ textAlign: styles?.self?.textAlign }) : undefined
             )}
@@ -55,17 +58,20 @@ export default function FeaturedItem(props: FeaturedItemProps) {
             <div className={classNames('w-full h-full', 'flex flex-col', 'p-8')}>
                 {hasImage && (
                     <div className={classNames(
-                        'flex items-center justify-center p-4 mb-6',
-                        'bg-white bg-opacity-20 rounded-lg',
+                        'flex items-center justify-center mb-6',
+                        'w-20 h-20 mx-auto md:mx-0',
+                        'bg-gradient-to-br from-primary/10 to-accent/10',
+                        'rounded-xl',
                         'transition-all duration-300',
-                        'w-20 h-20 mx-auto md:mx-0'
+                        'group-hover:scale-110 group-hover:rotate-3'
                     )}>
                         <ImageBlock
                             {...image}
                             className={classNames(
+                                'modern-icon-xl',
                                 'object-contain',
-                                hasTextContent && (flexDirection === 'row' || flexDirection === 'row-reversed') ? 'w-16 h-16' : 'w-32 h-32',
-                                'transition-transform duration-300 group-hover:scale-110'
+                                'transition-all duration-300 group-hover:scale-110',
+                                'filter drop-shadow-sm'
                             )}
                             {...(fieldPath && { 'data-sb-field-path': '.image' })}
                         />
@@ -78,17 +84,20 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                 >
                     <div>
                         {tagline && (
-                            <span className="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-primary-600 uppercase rounded-full bg-primary-100" 
+                            <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-primary bg-primary/10 uppercase rounded-full border border-primary/20" 
                                 {...(fieldPath && { 'data-sb-field-path': '.tagline' })}>
                                 {tagline}
                             </span>
                         )}
                         {title && (
                             <TitleTag
-                                className={classNames('text-2xl font-bold text-gray-900 dark:text-white', {
-                                    'mt-2': tagline,
-                                    'mb-3': subtitle || text
-                                })}
+                                className={classNames(
+                                    'modern-heading text-2xl font-bold leading-tight',
+                                    {
+                                        'mt-2': tagline,
+                                        'mb-4': subtitle || text
+                                    }
+                                )}
                                 {...(fieldPath && { 'data-sb-field-path': '.title' })}
                             >
                                 {title}
@@ -96,10 +105,13 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                         )}
                         {subtitle && (
                             <p
-                                className={classNames('text-lg font-medium text-gray-600 dark:text-gray-300', {
-                                    'mt-1': tagline || title,
-                                    'mb-4': text
-                                })}
+                                className={classNames(
+                                    'text-lg font-medium text-slate-600 leading-relaxed',
+                                    {
+                                        'mt-2': tagline || title,
+                                        'mb-4': text
+                                    }
+                                )}
                                 {...(fieldPath && { 'data-sb-field-path': '.subtitle' })}
                             >
                                 {subtitle}
@@ -114,14 +126,12 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                                         p: {
                                             component: 'p',
                                             props: {
-                                                className: 'text-gray-600 dark:text-gray-400 mb-4 leading-relaxed'
+                                                className: 'modern-text mb-4'
                                             }
                                         }
                                     }
                                 }}
-                                className={classNames('prose max-w-none mt-4 text-gray-600 dark:text-gray-300', {
-                                    'text-base leading-relaxed': true
-                                })}
+                                className="prose prose-slate max-w-none mt-4"
                                 {...(fieldPath && { 'data-sb-field-path': '.text' })}
                             >
                                 {text}
@@ -130,10 +140,10 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                         {actions.length > 0 && (
                             <div
                                 className={classNames(
-                                    'mt-8 pt-4',
+                                    'mt-8 pt-6',
                                     'flex flex-wrap gap-3',
                                     {
-                                        'mt-auto border-t border-gray-100 dark:border-gray-700': !(tagline || title || subtitle || text)
+                                        'mt-auto border-t border-neutral/10': !(tagline || title || subtitle || text)
                                     }
                                 )}
                                 {...(fieldPath && { 'data-sb-field-path': '.actions' })}
@@ -143,22 +153,14 @@ export default function FeaturedItem(props: FeaturedItemProps) {
                                         key={index}
                                         {...action}
                                         className={classNames(
-                                            'inline-flex items-center justify-center',
-                                            'px-6 py-2.5 text-sm font-semibold',
-                                            'rounded-lg transition-all duration-200',
-                                            'bg-white text-primary-600 hover:bg-gray-50 border-2 border-primary-600',
-                                            'focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
-                                            'hover:shadow-md hover:-translate-y-0.5',
-                                            'dark:bg-gray-800 dark:text-primary-400 dark:border-primary-500 dark:hover:bg-gray-700',
+                                            'modern-button modern-button-primary',
+                                            'inline-flex items-center gap-2',
+                                            'px-4 py-2 text-sm font-semibold',
+                                            'group/action',
                                             action.className
                                         )}
-                                        {...(fieldPath && { 'data-sb-field-path': ['.actions', index, '.'] })}
-                                    >
-                                        {action.label}
-                                        <svg className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                                        </svg>
-                                    </Action>
+                                        {...(fieldPath && { 'data-sb-field-path': `.actions.${index}` })}
+                                    />
                                 ))}
                             </div>
                         )}
