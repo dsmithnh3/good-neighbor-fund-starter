@@ -22,26 +22,26 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-[#0B1F3F] text-white pt-16 pb-8">
+    <footer className="bg-primary text-primary-foreground pt-16 pb-8">
       <div className="container mx-auto px-6">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo & Description */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-[#0B1F3F] font-bold text-xl">GN</span>
+              <div className="w-12 h-12 bg-primary-foreground rounded-lg flex items-center justify-center">
+                <span className="text-primary font-bold text-xl">GN</span>
               </div>
               <span className="font-semibold text-lg">Good Neighbor Fund</span>
             </div>
-            <p className="text-white/80 leading-relaxed">
+            <p className="text-primary-foreground/80 leading-relaxed">
               Supporting Georgia neighbors with mobility, nutrition, and dignity when insurance falls short.
             </p>
             {/* Social Links */}
             <div className="flex gap-4 pt-2">
               <a
                 href="mailto:info@goodneighborfund.org"
-                className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+                className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full flex items-center justify-center transition-colors"
                 aria-label="Email us"
               >
                 <Mail className="w-5 h-5" />
@@ -50,7 +50,7 @@ export function Footer() {
                 href="https://facebook.com/goodneighborfund"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+                className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -59,7 +59,7 @@ export function Footer() {
                 href="https://twitter.com/goodneighborfund"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+                className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full flex items-center justify-center transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
@@ -75,7 +75,7 @@ export function Footer() {
                 <li key={link.url}>
                   <Link
                     href={link.url}
-                    className="text-white/80 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors flex items-center gap-2 group"
                   >
                     <span>{link.label}</span>
                     <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -93,7 +93,7 @@ export function Footer() {
                 <li key={link.url}>
                   <Link
                     href={link.url}
-                    className="text-white/80 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors flex items-center gap-2 group"
                   >
                     <span>{link.label}</span>
                     <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -111,7 +111,7 @@ export function Footer() {
                 <li key={link.url}>
                   <Link
                     href={link.url}
-                    className="text-white/80 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors flex items-center gap-2 group"
                   >
                     <span>{link.label}</span>
                     <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -123,8 +123,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 pt-8">
-          <p className="text-center text-white/70 text-sm">
+        <div className="border-t border-primary-foreground/20 pt-8">
+          <p className="text-center text-primary-foreground/70 text-sm">
             © 2025 Good Neighbor Health & Mobility Project, Inc. All rights reserved. 501(c)(3) status pending.
           </p>
         </div>

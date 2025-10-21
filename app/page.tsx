@@ -24,7 +24,8 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F3F] via-[#1a3a5c] to-[#2d5a8c]" />
+        {/* Updated gradient to use semantic tokens */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-accent" />
 
         {/* Subtle Pattern Overlay */}
         <div
@@ -36,20 +37,21 @@ export default function HomePage() {
 
         <div className="container relative z-10 mx-auto px-4 py-20 text-center">
           <div className="max-w-5xl mx-auto space-y-8">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white text-balance">
+            {/* Updated text colors to use semantic tokens */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-primary-foreground text-balance">
               When Insurance Falls Short,
-              <span className="block mt-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+              <span className="block mt-2 bg-gradient-to-r from-primary-foreground to-primary-foreground/80 bg-clip-text text-transparent">
                 We Step In
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto text-pretty">
+            <p className="text-xl md:text-2xl text-primary-foreground/90 leading-relaxed max-w-3xl mx-auto text-pretty">
               Providing essential health and mobility support to individuals and families facing medical challenges
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#0B1F3F] hover:bg-white/90 hover:scale-105 text-lg px-10 py-7 rounded-2xl font-semibold shadow-2xl transition-all duration-300"
+                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:scale-105 text-lg px-10 py-7 rounded-2xl font-semibold shadow-2xl transition-all duration-300"
               >
                 <Link href="/donate">Donate Today</Link>
               </Button>
@@ -57,7 +59,7 @@ export default function HomePage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white/10 hover:scale-105 text-lg px-10 py-7 rounded-2xl font-semibold bg-transparent backdrop-blur-sm transition-all duration-300"
+                className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 hover:scale-105 text-lg px-10 py-7 rounded-2xl font-semibold bg-transparent backdrop-blur-sm transition-all duration-300"
               >
                 <Link href="/programs">Our Programs</Link>
               </Button>
@@ -67,34 +69,36 @@ export default function HomePage() {
       </section>
 
       {/* How You Can Assist */}
-      <section className="py-24 bg-[#0B1F3F] text-white">
+      {/* Updated background and text colors to use semantic tokens */}
+      <section className="py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-semibold text-center mb-16">how you can assist</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="bg-white/10 border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center">
+            {/* Updated card colors to use semantic tokens */}
+            <Card className="bg-primary-foreground/10 border-primary-foreground/20 p-8 text-center space-y-4 hover:bg-primary-foreground/15 transition-all duration-300">
+              <div className="w-16 h-16 mx-auto bg-primary-foreground/20 rounded-full flex items-center justify-center">
                 <DollarSign className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-semibold">Donate</h3>
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-primary-foreground/80 leading-relaxed">
                 Your financial support helps us provide essential medical equipment and supplies to those in need
               </p>
             </Card>
-            <Card className="bg-white/10 border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center">
+            <Card className="bg-primary-foreground/10 border-primary-foreground/20 p-8 text-center space-y-4 hover:bg-primary-foreground/15 transition-all duration-300">
+              <div className="w-16 h-16 mx-auto bg-primary-foreground/20 rounded-full flex items-center justify-center">
                 <HandHeart className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-semibold">Volunteer</h3>
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-primary-foreground/80 leading-relaxed">
                 Join our team and make a direct impact in your community by helping those facing health challenges
               </p>
             </Card>
-            <Card className="bg-white/10 border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center">
+            <Card className="bg-primary-foreground/10 border-primary-foreground/20 p-8 text-center space-y-4 hover:bg-primary-foreground/15 transition-all duration-300">
+              <div className="w-16 h-16 mx-auto bg-primary-foreground/20 rounded-full flex items-center justify-center">
                 <Users className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-semibold">Spread The Word</h3>
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-primary-foreground/80 leading-relaxed">
                 Share our mission with friends and family to help us reach more people who need assistance
               </p>
             </Card>
@@ -103,11 +107,12 @@ export default function HomePage() {
       </section>
 
       {/* About Us */}
-      <section className="py-24 bg-white">
+      {/* Updated background and text colors to use semantic tokens */}
+      <section className="py-24 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#0B1F3F] text-center mb-8">about us</h2>
-            <div className="prose prose-lg max-w-none text-[#1F2937] leading-relaxed space-y-6">
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground text-center mb-8">about us</h2>
+            <div className="prose prose-lg max-w-none text-card-foreground leading-relaxed space-y-6">
               <p>
                 Good Neighbor Health & Mobility Project is dedicated to supporting individuals and families facing
                 health challenges and mobility needs. We step in when insurance falls short, providing essential medical
@@ -127,7 +132,7 @@ export default function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-[#0B1F3F] text-white hover:bg-[#0a1930] px-8 py-6 rounded-2xl font-semibold"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 rounded-2xl font-semibold"
               >
                 <Link href="#donate">Donate Today!</Link>
               </Button>
@@ -135,7 +140,7 @@ export default function HomePage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-2 border-[#0B1F3F] text-[#0B1F3F] hover:bg-[#0B1F3F] hover:text-white px-8 py-6 rounded-2xl font-semibold bg-transparent"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-6 rounded-2xl font-semibold bg-transparent"
               >
                 <Link href="/programs">Our Programs</Link>
               </Button>
@@ -145,39 +150,43 @@ export default function HomePage() {
       </section>
 
       {/* Mission, Vision & Goal */}
-      <section className="py-24 bg-white">
+      {/* Updated background color to use semantic token */}
+      <section className="py-24 bg-card">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] text-center mb-6">Mission, Vision & Goal</h2>
-          <p className="text-center text-[#6B7280] text-lg mb-16 max-w-3xl mx-auto">
+          {/* Updated text colors to use semantic tokens */}
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-6">Mission, Vision & Goal</h2>
+          <p className="text-center text-muted-foreground text-lg mb-16 max-w-3xl mx-auto">
             Our commitment to preventing isolation, injury, and malnutrition through timely, practical support
           </p>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="p-8 text-center space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-[#0B1F3F]/10">
-              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-2xl flex items-center justify-center shadow-lg">
-                <Target className="w-10 h-10 text-white" />
+            {/* Updated card border colors to use semantic tokens */}
+            <Card className="p-8 text-center space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-primary/10">
+              {/* Updated gradient colors to use semantic tokens */}
+              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg">
+                <Target className="w-10 h-10 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-[#0B1F3F]">Mission</h3>
-              <p className="text-[#4B5563] leading-relaxed text-pretty">
+              <h3 className="text-2xl font-bold text-foreground">Mission</h3>
+              <p className="text-neutral-foreground leading-relaxed text-pretty">
                 To prevent isolation, injury, and malnutrition by providing timely, practical support that allows
                 patients and families to remain safe and independent in their own homes
               </p>
             </Card>
-            <Card className="p-8 text-center space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-[#0B1F3F]/10">
-              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-2xl flex items-center justify-center shadow-lg">
-                <Eye className="w-10 h-10 text-white" />
+            <Card className="p-8 text-center space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-primary/10">
+              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg">
+                <Eye className="w-10 h-10 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-[#0B1F3F]">Vision</h3>
-              <p className="text-[#4B5563] leading-relaxed text-pretty">
+              <h3 className="text-2xl font-bold text-foreground">Vision</h3>
+              <p className="text-neutral-foreground leading-relaxed text-pretty">
                 A community where no one faces health challenges alone, and everyone has access to the medical equipment
                 and support they need to thrive
               </p>
             </Card>
-            <Card className="p-8 text-center space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-[#0B1F3F]/10">
-              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-2xl flex items-center justify-center shadow-lg">
-                <Flag className="w-10 h-10 text-white" />
+            <Card className="p-8 text-center space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-primary/10">
+              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg">
+                <Flag className="w-10 h-10 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-[#0B1F3F]">Goal</h3>
-              <p className="text-[#4B5563] leading-relaxed text-pretty">
+              <h3 className="text-2xl font-bold text-foreground">Goal</h3>
+              <p className="text-neutral-foreground leading-relaxed text-pretty">
                 To serve 100+ families in Year 1 through our four core programs, building a sustainable model for
                 long-term community health support
               </p>
@@ -187,12 +196,14 @@ export default function HomePage() {
       </section>
 
       {/* Approach & Safeguards - NEW SECTION */}
-      <section className="py-24 bg-gradient-to-br from-[#F5F7FA] to-white">
+      {/* Updated background gradient to use semantic tokens */}
+      <section className="py-24 bg-gradient-to-br from-neutral to-card">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] mb-6">Our Approach & Safeguards</h2>
-              <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
+              {/* Updated text colors to use semantic tokens */}
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Our Approach & Safeguards</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Your generosity deserves accountability. Here's how we ensure every dollar makes a difference
               </p>
             </div>
@@ -201,12 +212,13 @@ export default function HomePage() {
               {/* Donor Trust & Transparency */}
               <Card className="p-8 space-y-6 hover:shadow-xl transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <CheckCircle2 className="w-6 h-6 text-white" />
+                  {/* Updated gradient colors to use semantic tokens */}
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#0B1F3F] mb-3">Direct Vendor Payments</h3>
-                    <p className="text-[#6B7280] leading-relaxed">
+                    <h3 className="text-xl font-bold text-foreground mb-3">Direct Vendor Payments</h3>
+                    <p className="text-muted-foreground leading-relaxed">
                       Your donations go straight to suppliers and contractors, never as cash to applicants. This reduces
                       risk and maximizes impact.
                     </p>
@@ -216,12 +228,12 @@ export default function HomePage() {
 
               <Card className="p-8 space-y-6 hover:shadow-xl transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <UserCheck className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                    <UserCheck className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#0B1F3F] mb-3">Licensed & Insured Contractors</h3>
-                    <p className="text-[#6B7280] leading-relaxed">
+                    <h3 className="text-xl font-bold text-foreground mb-3">Licensed & Insured Contractors</h3>
+                    <p className="text-muted-foreground leading-relaxed">
                       All ramp construction and installations are performed by certified, licensed, and insured
                       professionals with strict safety protocols.
                     </p>
@@ -231,8 +243,13 @@ export default function HomePage() {
 
               <Card className="p-8 space-y-6 hover:shadow-xl transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg
+                      className="w-6 h-6 text-primary-foreground"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -242,8 +259,8 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#0B1F3F] mb-3">Privacy-First Practices</h3>
-                    <p className="text-[#6B7280] leading-relaxed">
+                    <h3 className="text-xl font-bold text-foreground mb-3">Privacy-First Practices</h3>
+                    <p className="text-muted-foreground leading-relaxed">
                       We protect patient information with HIPAA-level care and strict confidentiality protocols. Your
                       privacy is non-negotiable.
                     </p>
@@ -253,12 +270,12 @@ export default function HomePage() {
 
               <Card className="p-8 space-y-6 hover:shadow-xl transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#0B1F3F] mb-3">Transparent Reporting</h3>
-                    <p className="text-[#6B7280] leading-relaxed">
+                    <h3 className="text-xl font-bold text-foreground mb-3">Transparent Reporting</h3>
+                    <p className="text-muted-foreground leading-relaxed">
                       Quarterly impact updates show exactly how funds are used, how many neighbors we've helped, and
                       where your donations went.
                     </p>
@@ -272,7 +289,7 @@ export default function HomePage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-2 border-[#0B1F3F] text-[#0B1F3F] hover:bg-[#0B1F3F] hover:text-white px-8 py-6 rounded-2xl font-semibold bg-transparent"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-6 rounded-2xl font-semibold bg-transparent"
               >
                 <Link href="/approach">Learn More About Our Approach</Link>
               </Button>
@@ -282,108 +299,120 @@ export default function HomePage() {
       </section>
 
       {/* How We Help Process */}
-      <section className="py-24 bg-white">
+      {/* Updated background color to use semantic token */}
+      <section className="py-24 bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] mb-6">How We Help</h2>
-            <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
+            {/* Updated text colors to use semantic tokens */}
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">How We Help</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Our streamlined process ensures fast, dignified assistance with maximum transparency
             </p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-[#0B1F3F]/20">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">
+            {/* Updated card border colors to use semantic tokens */}
+            <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-primary/20">
+              {/* Updated gradient and text colors to use semantic tokens */}
+              <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent text-primary-foreground rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">
                 1
               </div>
-              <FileText className="w-10 h-10 text-[#2d5a8c]" />
-              <h3 className="text-xl font-bold text-[#0B1F3F]">Application</h3>
-              <p className="text-[#6B7280] leading-relaxed">
+              <FileText className="w-10 h-10 text-accent" />
+              <h3 className="text-xl font-bold text-foreground">Application</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 Simple request form - no PHI required, no complex paperwork
               </p>
             </Card>
-            <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-[#0B1F3F]/20">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">
+            <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-primary/20">
+              <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent text-primary-foreground rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">
                 2
               </div>
-              <CheckCircle2 className="w-10 h-10 text-[#2d5a8c]" />
-              <h3 className="text-xl font-bold text-[#0B1F3F]">Review</h3>
-              <p className="text-[#6B7280] leading-relaxed">Quick turnaround - often same-week for urgent needs</p>
+              <CheckCircle2 className="w-10 h-10 text-accent" />
+              <h3 className="text-xl font-bold text-foreground">Review</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Quick turnaround - often same-week for urgent needs
+              </p>
             </Card>
-            <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-[#0B1F3F]/20">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">
+            <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-primary/20">
+              <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent text-primary-foreground rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">
                 3
               </div>
-              <CreditCard className="w-10 h-10 text-[#2d5a8c]" />
-              <h3 className="text-xl font-bold text-[#0B1F3F]">Direct Payment</h3>
-              <p className="text-[#6B7280] leading-relaxed">
+              <CreditCard className="w-10 h-10 text-accent" />
+              <h3 className="text-xl font-bold text-foreground">Direct Payment</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 We pay vendors directly - maximum impact, full transparency
               </p>
             </Card>
-            <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-[#0B1F3F]/20">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">
+            <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-primary/20">
+              <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent text-primary-foreground rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">
                 4
               </div>
-              <UserCheck className="w-10 h-10 text-[#2d5a8c]" />
-              <h3 className="text-xl font-bold text-[#0B1F3F]">Follow-Up</h3>
-              <p className="text-[#6B7280] leading-relaxed">Ongoing support to ensure your needs are fully met</p>
+              <UserCheck className="w-10 h-10 text-accent" />
+              <h3 className="text-xl font-bold text-foreground">Follow-Up</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Ongoing support to ensure your needs are fully met
+              </p>
             </Card>
           </div>
         </div>
       </section>
 
       {/* Programs */}
-      <section className="py-24 bg-white">
+      {/* Updated background color to use semantic token */}
+      <section className="py-24 bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] mb-6">Our Programs</h2>
-            <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
+            {/* Updated text colors to use semantic tokens */}
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Our Programs</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Fast-turnaround assistance when insurance falls short
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <Link href="/programs/dme-grants" className="group">
-              <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full border-2 border-transparent hover:border-[#0B1F3F]/20">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Wheelchair className="w-8 h-8 text-white" />
+              {/* Updated card border colors to use semantic tokens */}
+              <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full border-2 border-transparent hover:border-primary/20">
+                {/* Updated gradient colors to use semantic tokens */}
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Wheelchair className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0B1F3F]">DME Micro-Grants</h3>
-                <p className="text-[#6B7280] leading-relaxed">
+                <h3 className="text-xl font-bold text-foreground">DME Micro-Grants</h3>
+                <p className="text-muted-foreground leading-relaxed">
                   Fast-turnaround micro-grants ($100-$500) for critical equipment like rollators with seats,
                   heel-protective boots, and fall-alert devices
                 </p>
               </Card>
             </Link>
             <Link href="/programs/wheelchair-ramps" className="group">
-              <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full border-2 border-transparent hover:border-[#0B1F3F]/20">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Home className="w-8 h-8 text-white" />
+              <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full border-2 border-transparent hover:border-primary/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Home className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0B1F3F]">Wheelchair Ramps</h3>
-                <p className="text-[#6B7280] leading-relaxed">
+                <h3 className="text-xl font-bold text-foreground">Wheelchair Ramps</h3>
+                <p className="text-muted-foreground leading-relaxed">
                   Funding and coordinating construction of safe home access ramps through licensed and insured
                   contractors with strict safety protocols
                 </p>
               </Card>
             </Link>
             <Link href="/programs/tube-feeding" className="group">
-              <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full border-2 border-transparent hover:border-[#0B1F3F]/20">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Utensils className="w-8 h-8 text-white" />
+              <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full border-2 border-transparent hover:border-primary/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Utensils className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0B1F3F]">Tube Feeding Support</h3>
-                <p className="text-[#6B7280] leading-relaxed">
+                <h3 className="text-xl font-bold text-foreground">Tube Feeding Support</h3>
+                <p className="text-muted-foreground leading-relaxed">
                   Direct-to-vendor subsidies ensuring patients reliant on enteral nutrition have consistent access to
                   medically necessary formula
                 </p>
               </Card>
             </Link>
             <Link href="/programs/holiday-stockings" className="group">
-              <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full border-2 border-transparent hover:border-[#0B1F3F]/20">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Gift className="w-8 h-8 text-white" />
+              <Card className="p-8 space-y-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full border-2 border-transparent hover:border-primary/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Gift className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0B1F3F]">Holiday Stockings</h3>
-                <p className="text-[#6B7280] leading-relaxed">
+                <h3 className="text-xl font-bold text-foreground">Holiday Stockings</h3>
+                <p className="text-muted-foreground leading-relaxed">
                   Annual program delivering comfort and care items to patients during the holiday season, easing the
                   burden of illness with dignity
                 </p>
@@ -394,7 +423,8 @@ export default function HomePage() {
       </section>
 
       {/* Year 1 Impact Goals - NEW SECTION */}
-      <section className="py-24 bg-gradient-to-br from-[#0B1F3F] to-[#1a3a5c] text-white relative overflow-hidden">
+      {/* Updated gradient colors to use semantic tokens */}
+      <section className="py-24 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground relative overflow-hidden">
         {/* Background Pattern */}
         <div
           className="absolute inset-0 opacity-5"
@@ -406,31 +436,33 @@ export default function HomePage() {
         <div className="container relative z-10 mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Year 1 Impact Goals</h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            {/* Updated text color to use semantic token */}
+            <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
               We're committed to measurable results. Track our progress as we work to serve our community
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-              <div className="text-5xl font-bold text-white">100+</div>
+            {/* Updated card colors to use semantic tokens */}
+            <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20 p-8 text-center space-y-4 hover:bg-primary-foreground/15 transition-all duration-300 hover:scale-105">
+              <div className="text-5xl font-bold text-primary-foreground">100+</div>
               <h3 className="text-xl font-semibold">Holiday Stockings</h3>
-              <p className="text-white/80 text-sm">Delivered to patients in need</p>
+              <p className="text-primary-foreground/80 text-sm">Delivered to patients in need</p>
             </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-              <div className="text-5xl font-bold text-white">30+</div>
+            <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20 p-8 text-center space-y-4 hover:bg-primary-foreground/15 transition-all duration-300 hover:scale-105">
+              <div className="text-5xl font-bold text-primary-foreground">30+</div>
               <h3 className="text-xl font-semibold">DME Micro-Grants</h3>
-              <p className="text-white/80 text-sm">Awarded ($100-$500 each)</p>
+              <p className="text-primary-foreground/80 text-sm">Awarded ($100-$500 each)</p>
             </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-              <div className="text-5xl font-bold text-white">10+</div>
+            <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20 p-8 text-center space-y-4 hover:bg-primary-foreground/15 transition-all duration-300 hover:scale-105">
+              <div className="text-5xl font-bold text-primary-foreground">10+</div>
               <h3 className="text-xl font-semibold">Months of Formula</h3>
-              <p className="text-white/80 text-sm">Funded for tube-feeding patients</p>
+              <p className="text-primary-foreground/80 text-sm">Funded for tube-feeding patients</p>
             </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-              <div className="text-5xl font-bold text-white">5+</div>
+            <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20 p-8 text-center space-y-4 hover:bg-primary-foreground/15 transition-all duration-300 hover:scale-105">
+              <div className="text-5xl font-bold text-primary-foreground">5+</div>
               <h3 className="text-xl font-semibold">Wheelchair Ramps</h3>
-              <p className="text-white/80 text-sm">Constructed or funded</p>
+              <p className="text-primary-foreground/80 text-sm">Constructed or funded</p>
             </Card>
           </div>
 
@@ -438,7 +470,7 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              className="bg-white text-[#0B1F3F] hover:bg-white/90 hover:scale-105 px-10 py-7 rounded-2xl font-semibold shadow-xl transition-all duration-300"
+              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:scale-105 px-10 py-7 rounded-2xl font-semibold shadow-xl transition-all duration-300"
             >
               <Link href="/impact">View Our Impact Dashboard</Link>
             </Button>
@@ -447,41 +479,45 @@ export default function HomePage() {
       </section>
 
       {/* Donation Section */}
-      <section id="donate" className="py-24 bg-gradient-to-br from-[#F5F7FA] to-white">
+      {/* Updated gradient colors to use semantic tokens */}
+      <section id="donate" className="py-24 bg-gradient-to-br from-neutral to-card">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center space-y-12">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] mb-6">Make a Donation</h2>
-              <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
+              {/* Updated text colors to use semantic tokens */}
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Make a Donation</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Your contribution makes a direct impact. See exactly how your donation helps:
               </p>
             </div>
 
             {/* Donation Impact Breakdown */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card className="p-8 space-y-3 border-2 border-[#D1D9E6] hover:border-[#2d5a8c] hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl font-bold text-[#0B1F3F]">$25</div>
-                <p className="text-[#6B7280] font-medium">Supplies for one holiday stocking</p>
+              {/* Updated card border colors to use semantic tokens */}
+              <Card className="p-8 space-y-3 border-2 border-border hover:border-accent hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl font-bold text-foreground">$25</div>
+                <p className="text-muted-foreground font-medium">Supplies for one holiday stocking</p>
               </Card>
-              <Card className="p-8 space-y-3 border-2 border-[#D1D9E6] hover:border-[#2d5a8c] hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl font-bold text-[#0B1F3F]">$100</div>
-                <p className="text-[#6B7280] font-medium">One complete DME micro-grant</p>
+              <Card className="p-8 space-y-3 border-2 border-border hover:border-accent hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl font-bold text-foreground">$100</div>
+                <p className="text-muted-foreground font-medium">One complete DME micro-grant</p>
               </Card>
-              <Card className="p-8 space-y-3 border-2 border-[#D1D9E6] hover:border-[#2d5a8c] hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl font-bold text-[#0B1F3F]">$250</div>
-                <p className="text-[#6B7280] font-medium">One month of tube feeding formula</p>
+              <Card className="p-8 space-y-3 border-2 border-border hover:border-accent hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl font-bold text-foreground">$250</div>
+                <p className="text-muted-foreground font-medium">One month of tube feeding formula</p>
               </Card>
-              <Card className="p-8 space-y-3 border-2 border-[#D1D9E6] hover:border-[#2d5a8c] hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl font-bold text-[#0B1F3F]">$500</div>
-                <p className="text-[#6B7280] font-medium">Partial wheelchair ramp funding</p>
+              <Card className="p-8 space-y-3 border-2 border-border hover:border-accent hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl font-bold text-foreground">$500</div>
+                <p className="text-muted-foreground font-medium">Partial wheelchair ramp funding</p>
               </Card>
-              <Card className="p-8 space-y-3 border-2 border-[#D1D9E6] hover:border-[#2d5a8c] hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl font-bold text-[#0B1F3F]">$1,500</div>
-                <p className="text-[#6B7280] font-medium">Complete wheelchair ramp</p>
+              <Card className="p-8 space-y-3 border-2 border-border hover:border-accent hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl font-bold text-foreground">$1,500</div>
+                <p className="text-muted-foreground font-medium">Complete wheelchair ramp</p>
               </Card>
-              <Card className="p-8 space-y-3 border-2 border-[#2d5a8c] bg-gradient-to-br from-[#F5F7FA] to-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl font-bold text-[#0B1F3F]">Custom</div>
-                <p className="text-[#6B7280] font-medium">Any amount helps!</p>
+              {/* Updated card border and background colors to use semantic tokens */}
+              <Card className="p-8 space-y-3 border-2 border-accent bg-gradient-to-br from-neutral to-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl font-bold text-foreground">Custom</div>
+                <p className="text-muted-foreground font-medium">Any amount helps!</p>
               </Card>
             </div>
 
@@ -489,14 +525,15 @@ export default function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white hover:from-[#16a34a] hover:to-[#15803d] hover:scale-105 px-12 py-8 rounded-2xl text-xl font-bold shadow-2xl transition-all duration-300"
+                className="bg-gradient-to-r from-success to-success/90 text-success-foreground hover:from-success/90 hover:to-success/80 hover:scale-105 px-12 py-8 rounded-2xl text-xl font-bold shadow-2xl transition-all duration-300"
               >
                 <Link href="/donate">Donate Now</Link>
               </Button>
             </div>
 
-            <p className="text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
-              <strong className="text-[#0B1F3F]">100% of your donation</strong> goes directly to helping those in need
+            {/* Updated text colors to use semantic tokens */}
+            <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <strong className="text-foreground">100% of your donation</strong> goes directly to helping those in need
               through our direct-to-vendor payment model. All donations are tax-deductible.
             </p>
           </div>
@@ -504,18 +541,27 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-white">
+      {/* Updated background color to use semantic token */}
+      <section id="contact" className="py-24 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] text-center mb-16">Get in Touch</h2>
+            {/* Updated text color to use semantic token */}
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16">Get in Touch</h2>
             <div className="grid md:grid-cols-2 gap-12">
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-[#0B1F3F] mb-6">Contact Information</h3>
-                  <div className="space-y-6 text-[#6B7280]">
+                  {/* Updated text colors to use semantic tokens */}
+                  <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
+                  <div className="space-y-6 text-muted-foreground">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {/* Updated gradient colors to use semantic tokens */}
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg
+                          className="w-6 h-6 text-primary-foreground"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -531,13 +577,18 @@ export default function HomePage() {
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold text-[#0B1F3F] mb-1">Location</p>
+                        <p className="font-semibold text-foreground mb-1">Location</p>
                         <p>Loganville, Georgia, United States</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg
+                          className="w-6 h-6 text-primary-foreground"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -547,13 +598,18 @@ export default function HomePage() {
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold text-[#0B1F3F] mb-1">Phone</p>
+                        <p className="font-semibold text-foreground mb-1">Phone</p>
                         <p>+1-770-568-0063</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#0B1F3F] to-[#2d5a8c] rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg
+                          className="w-6 h-6 text-primary-foreground"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -563,7 +619,7 @@ export default function HomePage() {
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold text-[#0B1F3F] mb-1">Email</p>
+                        <p className="font-semibold text-foreground mb-1">Email</p>
                         <p>info@goodneighborfund.org</p>
                       </div>
                     </div>
@@ -571,24 +627,27 @@ export default function HomePage() {
                 </div>
               </div>
               <Card className="p-8 space-y-6 shadow-xl">
-                <h3 className="text-2xl font-bold text-[#0B1F3F]">Send Us a Message</h3>
+                {/* Updated text color to use semantic token */}
+                <h3 className="text-2xl font-bold text-foreground">Send Us a Message</h3>
                 <div className="space-y-4">
+                  {/* Updated input border colors to use semantic tokens */}
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="w-full px-5 py-4 border-2 border-[#D1D9E6] rounded-xl focus:border-[#2d5a8c] focus:outline-none transition-colors"
+                    className="w-full px-5 py-4 border-2 border-border rounded-xl focus:border-accent focus:outline-none transition-colors"
                   />
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="w-full px-5 py-4 border-2 border-[#D1D9E6] rounded-xl focus:border-[#2d5a8c] focus:outline-none transition-colors"
+                    className="w-full px-5 py-4 border-2 border-border rounded-xl focus:border-accent focus:outline-none transition-colors"
                   />
                   <textarea
                     placeholder="Your Message"
                     rows={5}
-                    className="w-full px-5 py-4 border-2 border-[#D1D9E6] rounded-xl focus:border-[#2d5a8c] focus:outline-none resize-none transition-colors"
+                    className="w-full px-5 py-4 border-2 border-border rounded-xl focus:border-accent focus:outline-none resize-none transition-colors"
                   />
-                  <Button className="w-full bg-[#0B1F3F] text-white hover:bg-[#0a1930] hover:scale-105 py-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300">
+                  {/* Updated button colors to use semantic tokens */}
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 py-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300">
                     Send Message
                   </Button>
                 </div>
