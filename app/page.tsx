@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import {
-  Users,
   HandHeart,
   Target,
   Eye,
@@ -15,6 +14,10 @@ import {
   Gift,
   Utensils,
   Home,
+  Share2,
+  Building2,
+  Shield,
+  TrendingUp,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -67,36 +70,214 @@ export default function HomePage() {
       </section>
 
       {/* How You Can Assist */}
-      <section className="py-24 bg-[#0B1F3F] text-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-16">how you can assist</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="bg-white/10 border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center">
-                <DollarSign className="w-8 h-8" />
+      <section className="py-24 bg-[#0B1F3F] text-white relative overflow-hidden">
+        {/* Subtle Pattern Overlay - added for consistency */}
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+
+        <div className="container relative z-10 mx-auto px-4">
+          {/* Title with proper capitalization and engaging subtitle */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">How You Can Assist</h2>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Every contribution makes a measurable difference. Join our mission to help neighbors in need.
+            </p>
+            {/* Trust indicator badge */}
+            <div className="flex items-center justify-center gap-2 mt-6">
+              <Shield className="w-5 h-5 text-white/80" />
+              <span className="text-sm text-white/80 font-medium">
+                100% Direct to Vendors • Tax-Deductible • HIPAA-Level Privacy
+              </span>
+            </div>
+          </div>
+
+          {/* Enhanced grid layout with featured Donate card */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {/* Featured Donate Card - larger and more prominent */}
+            <Card className="md:col-span-2 lg:col-span-2 bg-white/10 backdrop-blur-sm border-2 border-white/30 p-10 space-y-6 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <DollarSign className="w-10 h-10" />
+                </div>
+                <div className="flex-1 space-y-4">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">Donate</h3>
+                    <p className="text-white/90 leading-relaxed text-lg mb-4">
+                      Your financial support provides essential medical equipment and supplies to those in need
+                    </p>
+                  </div>
+
+                  {/* Impact examples with checkmarks */}
+                  <div className="space-y-2">
+                    <p className="text-sm font-semibold text-white/80 mb-3">What Your Donation Provides:</p>
+                    <div className="grid sm:grid-cols-2 gap-2 text-sm text-white/80">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                        <span>$25 = Holiday Stocking</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                        <span>$100 = Rollator with seat</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                        <span>$300 = DME Micro-Grant</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                        <span>$2,000 = Wheelchair Ramp</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Success metric */}
+                  <div className="flex items-center gap-2 text-sm text-white/70 pt-2">
+                    <TrendingUp className="w-4 h-4" />
+                    <span>Join 50+ donors helping us reach 145+ neighbors in Year 1</span>
+                  </div>
+
+                  {/* Primary CTA */}
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full sm:w-auto bg-white text-[#0B1F3F] hover:bg-white/90 hover:scale-105 px-8 py-6 rounded-xl font-semibold shadow-xl transition-all duration-300"
+                  >
+                    <Link href="/donate">Donate Now</Link>
+                  </Button>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold">Donate</h3>
-              <p className="text-white/80 leading-relaxed">
-                Your financial support helps us provide essential medical equipment and supplies to those in need
-              </p>
             </Card>
-            <Card className="bg-white/10 border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center">
+
+            {/* Volunteer Card */}
+            <Card className="bg-white/10 backdrop-blur-sm border-2 border-white/20 p-10 space-y-6 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 hover:border-white/30 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                 <HandHeart className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-semibold">Volunteer</h3>
-              <p className="text-white/80 leading-relaxed">
-                Join our team and make a direct impact in your community by helping those facing health challenges
-              </p>
-            </Card>
-            <Card className="bg-white/10 border-white/20 p-8 text-center space-y-4 hover:bg-white/15 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center">
-                <Users className="w-8 h-8" />
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold">Volunteer</h3>
+                <p className="text-white/80 leading-relaxed">
+                  Make a direct impact in your community by helping those facing health challenges
+                </p>
+
+                {/* Volunteer opportunities */}
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold text-white/70">Ways to Help:</p>
+                  <div className="space-y-1.5 text-sm text-white/70">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                      <span>Holiday stocking assembly</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                      <span>Fundraising events</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                      <span>Community outreach</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-sm text-white/60 italic">Commit just 2 hours/month</p>
+
+                {/* Secondary CTA */}
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="w-full border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 px-6 py-5 rounded-xl font-semibold transition-all duration-300 bg-transparent"
+                >
+                  <Link href="/contact?subject=volunteer">Volunteer Today</Link>
+                </Button>
               </div>
-              <h3 className="text-xl font-semibold">Spread The Word</h3>
-              <p className="text-white/80 leading-relaxed">
-                Share our mission with friends and family to help us reach more people who need assistance
-              </p>
+            </Card>
+
+            {/* Spread The Word Card */}
+            <Card className="bg-white/10 backdrop-blur-sm border-2 border-white/20 p-10 space-y-6 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 hover:border-white/30 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Share2 className="w-8 h-8" />
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold">Spread The Word</h3>
+                <p className="text-white/80 leading-relaxed">
+                  Share our mission to help us reach more people who need assistance
+                </p>
+
+                {/* Ways to spread the word */}
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold text-white/70">Share Our Mission:</p>
+                  <div className="space-y-1.5 text-sm text-white/70">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                      <span>Share on social media</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                      <span>Tell your healthcare provider</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#22c55e]" />
+                      <span>Refer someone in need</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-sm text-white/60 italic">Help us reach 1,000+ people</p>
+
+                {/* Tertiary CTA */}
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="w-full border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 px-6 py-5 rounded-xl font-semibold transition-all duration-300 bg-transparent"
+                >
+                  <Link href="/contact?subject=share">Get Shareable Content</Link>
+                </Button>
+              </div>
+            </Card>
+          </div>
+
+          {/* Fourth card - Partner With Us (full width below) */}
+          <div className="mt-8 max-w-7xl mx-auto">
+            <Card className="bg-white/10 backdrop-blur-sm border-2 border-white/20 p-10 hover:bg-white/15 hover:shadow-2xl hover:-translate-y-2 hover:border-white/30 transition-all duration-300 group">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Building2 className="w-10 h-10" />
+                </div>
+                <div className="flex-1 text-center md:text-left space-y-3">
+                  <h3 className="text-2xl font-bold">Partner With Us</h3>
+                  <p className="text-white/90 leading-relaxed text-lg">
+                    Corporate sponsorships and healthcare provider partnerships help us expand our reach and serve more
+                    families in need
+                  </p>
+                  <div className="flex flex-wrap gap-4 justify-center md:justify-start text-sm text-white/70">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#22c55e]" />
+                      <span>Corporate matching programs</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#22c55e]" />
+                      <span>Healthcare provider referrals</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#22c55e]" />
+                      <span>Community partnerships</span>
+                    </div>
+                  </div>
+                </div>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 px-8 py-6 rounded-xl font-semibold transition-all duration-300 whitespace-nowrap bg-transparent"
+                >
+                  <Link href="/contact?subject=partnership">Learn More</Link>
+                </Button>
+              </div>
             </Card>
           </div>
         </div>
